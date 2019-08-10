@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+:root {
+    --pomodoro0: #ce2b37;
+    --pomodoro1: #b92631;
+    --branco0: #ecf0f1;
+	--branco1: #bdc3c7;
+	--cinza0: #95a5a6;
+    --cinza1: #7f8c8d;
+    --verde0: #009246;
+    --verde1: #00833f;
+    --verde2: #007438;
+	/* https://flatuicolors.com/palette/defo */
+}
+
+abbr {
+    text-decoration: none;
+}
+
+form > * {
+    margin-left: 16px;
+    display: block;
+}
+
+span[role='autoria'], legend, label { margin-top: 16px; }
+
+form > input, select {
+    margin-bottom: 16px;
+}
+
+input, select, textarea {
+    font-family: "Merriweather", sans-serif;
+    background-color: var(--branco0);
+    border-radius: 8px;
+}
+
+input:focus, select:focus, textarea:focus { outline-color: var(--verde0); }
+
+body {
+	color: var(--branco0);
+    background-color: var(--verde2);
+    font-family: 'Merriweather', sans-serif;
+}
+
+aside, footer { background-color: var(--pomodoro0); }
+
+footer { padding: 16px 0 16px 0; }
+
+h1, h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #ecf0f1;
+    padding: 16px;
+}
+
+h1 {
+    background-color: var(--verde0);
+    font-size: 64px;
+}
+
+h2 {
+    background-color: var(--verde1);
+    padding-top: 16px;
+    font-size: 32px;
+}
+
+input[type='radio'] {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+fieldset {
+    margin: 16px 0 16px 16px;
+    width: fit-content;
+    height: 32px;
+}
+
+.links { display: flex; }
+
+.links > * {
+    padding: 8px 0 8px 0;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #ecf0f1;
+}
+
+a:hover {
+    text-shadow: 2px 2px 5px white;
+    transition-duration: 0.4s;
+}
+
+span[role='autoria'] { margin-left: 16px; }
+
+button, input[type="submit"], input[type="reset"] {
+    background-color: var(--pomodoro0);
+    border-color: var(--pomodoro1);
+    color: var(--branco0);
+    border-radius: 8px;
+    outline: none;
+    padding: 8px;
+}
+
+span[title="Obrigatório"] { color: var(--pomodoro0); }
