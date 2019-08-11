@@ -5,133 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IF Maker &#x2015; Venha fazer parte!</title>
+    <meta name="application-name" content="IF Maker">
+    <meta name="author" content="br.edu.ifms">
+    <meta name="description" content="Página principal do IF Maker">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="keywords" content="Laboratório, Prototipação, Arduíno">
     <link rel="stylesheet" type="text/css" href="./css/reset.css"> <!-- reset adaptado -->
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <link rel="shortcut icon" href="./favicon.ico">
+    <title>IF Maker &#x2015; Home</title>
 </head>
 
 <body>
     <header>
         <h1>IF Maker &#9881;</h1>
-        <h2>Laboratório de fabricação <abbr title="Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul">IFMS</abbr> Aquidauana</h2>
+        <h2>Laboratório de fabricação <abbr
+                title="Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul">IFMS</abbr> Aquidauana
+        </h2>
     </header>
 
-    <main>
-        <form action="Cadastrar.php" method="post">
-            <label for="nome">Nome: <span title="Obrigatório">*</span></label>
-            <input type="text" name="nome" required>
+    <main class="container">
+        <h3>O que é o IF Maker?</h3>
 
-            <label for="dataNascimento">Data de nascimento:</label>
-            <input type="date" name="dataNascimento">
+        <div class="conteudo">
+            <p>IF Maker é uma plataforma de prototipagem com suporte à inovação e ao aprendizado. Possibilita que
+                pessoas da comunidade interna e externa ao <abbr
+                    title="Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul">IFMS</abbr> câmpus
+                Aquidauana possam projetar e desenvolver suas ideias de forma
+                criativa e cooperativa.</p>
 
-            <label for="cpf">CPF: (apenas números)</label>
-            <input type="text" name="cpf">
+            <p>O objetivo principal é a disseminação do conhecimento técnico fornecendo estimulo para a difusão do
+                empreendedorismo local.</p>
 
-            <label for="email">Endereço eletrônico: <span title="Obrigatório">*</span></label>
-            <input type="email" name="email" required>
+            <p>Se você possui uma ideia - ainda que julgue ser inconsistente - venha explorar o potencial da mesma,
+                colocando-a em prática de forma divertida e colaborativa.</p>
 
-            <label for="celular">Telefone celular:</label>
-            <input type="phone" name="celular">
+            <p>Para mais informações, clique <a href="https://sites.google.com/a/ifms.edu.br/ln/projetos/Fab-Lab"
+                    target="_blank">aqui</a> ou <a href="https://fablabifms.wixsite.com/main" target="_blank">aqui</a>.
+                Venha fazer parte clicando <a href="./cadastrar.html">aqui</a>.
+            </p>
+        </div>
 
-            <label for="endereco">Logradouro:</label>
-            <input type="text" name="endereco">
+        <div class="janela">
+            <figure>
+                <img src="./img/porta_caneta_small.jpg" alt="Porta canetas">
+                <figcaption>Porta canetas.</figcaption>
+            </figure>
 
-            <label for="numero">Número:</label>
-            <input type="number" name="numero">
+            <figure>
+                <img src="./img/DSC_0523.jpg" alt="Totem - COTSI">
+                <figcaption>Totem - COTSI.</figcaption>
+            </figure>
 
-            <label for="complemento">Complemento:</label>
-            <input type="text" name="complemento">
+            <figure>
+                <img src="./img/DSC_0521.jpg" alt="Impressão do totem">
+                <figcaption>Impressão do totem.</figcaption>
+            </figure>
 
-            <label for="bairro">Bairro:</label>
-            <input type="text" name="bairro">
-
-            <label for="cep">CEP: (apenas números)</label>
-            <input type="text" name="cep">
-
-            <label for="estado">Estado:</label>
-            <select name="estado">
-                <option>Estado não especificado</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="etc">etc</option>
-            </select>
-
-            <label for="cidade">Cidade:</label>
-            <select name="cidade">
-                <option>Cidade não especificada</option>
-                <option value="Ponta Porã">Ponta Porã</option>
-                <option value="Aquidauana">Aquidauana</option>
-                <option value="etc">etc</option>
-            </select>
-
-            <label for="nacionalidade">Nacionalidade:</label>
-            <input type="text" name="nacionalidade">
-
-            <label for="naturalidade">Naturalidade:</label>
-            <input type="text" name="naturalidade">
-
-            <label for="historico">Histórico escolar:</label>
-            <textarea rows="4" cols="50" name="historico"></textarea>
-
-            <fieldset>
-                <legend>Cursos/Palestras/Oficinas</legend>
-
-                <label for="poc">Arduíno</label>
-                <input type="radio" name="poc" value="arduino">
-
-                <label for="poc">Locução</label>
-                <input type="radio" name="poc" value="locucao">
-
-                <label for="poc">Rádio</label>
-                <input type="radio" name="poc" value="radio">
-            </fieldset>
-
-            <fieldset>
-                <legend>Horários disponíveis</legend>
-
-                <label for="hora">09h</label>
-                <input type="radio" name="hora" value="09h">
-
-                <label for="hora">11h</label>
-                <input type="radio" name="hora" value="11h">
-
-                <label for="hora">15h</label>
-                <input type="radio" name="hora" value="15h">
-
-                <label for="hora">18h</label>
-                <input type="radio" name="hora" value="18h">
-            </fieldset>
-
-            <fieldset>
-                <legend>Eventos</legend>
-
-                <label for="eventos">SMA</label>
-                <input type="checkbox" name="eventos" value="SMA">
-
-                <label for="eventos">DCN</label>
-                <input type="checkbox" name="eventos" value="DCN">
-
-                <label for="eventos">SCN</label>
-                <input type="checkbox" name="eventos" value="SCN">
-
-                <label for="eventos">FECIAQ</label>
-                <input type="checkbox" name="eventos" value="FECIAQ">
-            </fieldset>
-
-            <label for="senha">Senha: <span title="Obrigatório">*</span></label>
-            <input type="password" name="senha" required>
-
-            <input type="submit" value="Enviar" name="enviar">
-
-            <input type="reset" value="Reset" name="limpar">
-        </form>
+            <figure>
+                <img src="./img/DSC_0544.jpg" alt="Minicurso">
+                <figcaption>Minicurso.</figcaption>
+            </figure>
+        </div>
     </main>
 
     <aside>
         <ul class="links">
             <li><a href="#">Nossos serviços</a></li>
-            <li><a href="#">Cadastro</a></li>
+            <li><a href="./cadastrar.html">Cadastro</a></li>
             <li><a href="#">Quem somos</a></li>
             <li><a href="http://ifms.edu.br/" target="_blank">Site do IFMS</a></li>
         </ul>

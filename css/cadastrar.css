@@ -1,6 +1,6 @@
 main > *, details > * { margin: 16px 0 16px 16px; }
 
-main { min-height: 512px; }
+main { min-height: 32em; }
 
 b { font-weight: bold; }
 
@@ -8,7 +8,7 @@ ul.cadastro {
     text-align: justify;
     padding-left: 32px;
     line-height: 1.5;
-    width: 512px;
+    width: 50%;
 }
 
 ul.cadastro > * {
