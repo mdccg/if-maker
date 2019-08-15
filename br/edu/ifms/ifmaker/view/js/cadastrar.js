@@ -12,8 +12,8 @@ function labelClicavel(event) {
 }
 
 var cpf = document.querySelector("input[name='cpf']");
-var celular = document.querySelector("input[name='celular']");
 var cep = document.querySelector("input[name='cep']");
+var celular = document.querySelector("input[name='celular']");
 
 cpf.onkeyup = function (event) {
     if (event.key == "Backspace" || event.key == "Delete") return;
@@ -29,36 +29,36 @@ cpf.onkeyup = function (event) {
     }
 }
 
-celular.onkeyup = function (event) {
-    if (event.key == "Backspace" || event.key == "Delete") return;
-
-    if (event.key != "(" && event.key != "Shift" && event.key != ")" && event.key != "-") {
-        switch(event.target.value.length) {
-        case 1:
-            event.target.value = "(" + event.target.value;
-            break;
-        case 4:
-            event.target.value += ") ";
-            break;
-        case 10:
-            event.target.value += "-";
-            break;
-        case 16:
-            event.target.value = event.target.value.substring(0, 5)
-                + " " + event.target.value[6]
-                + " " + event.target.value.substring(7, 10)
-                + event.target.value[11]
-                + "-" + event.target.value.substring(12, 16);
-            break;
-        }
-    }
-}
-
 cep.onkeyup = function (event) {
     if (event.key == "Backspace" || event.key == "Delete") return;
 
     if (event.target.value.length == 5)
         event.target.value += "-";
+}
+
+celular.onkeyup = function (event) {
+    if (event.key == "Backspace" || event.key == "Delete") return;
+
+    if (event.key != "(" && event.key != "Shift" && event.key != ")" && event.key != "-") {
+        switch (event.target.value.length) {
+            case 1:
+                event.target.value = "(" + event.target.value;
+                break;
+            case 4:
+                event.target.value += ") ";
+                break;
+            case 10:
+                event.target.value += "-";
+                break;
+            case 16:
+                event.target.value = event.target.value.substring(0, 5)
+                    + " " + event.target.value[6]
+                    + " " + event.target.value.substring(7, 10)
+                    + event.target.value[11]
+                    + "-" + event.target.value.substring(12, 16);
+                break;
+        }
+    }
 }
 
 document.onclick = function (event) {

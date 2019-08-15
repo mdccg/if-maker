@@ -32,7 +32,7 @@
                 sejam mantidas no mais absoluto sigilo.</p>
         </div>
 
-        <form action="./Cadastrar.php" method="POST">
+        <form action="./cadastrar.php" method="POST">
             <label for="nome">Nome: <span title="Obrigatório">*</span></label>
             <input type="text" name="nome" required>
 
@@ -118,19 +118,20 @@
                 <input type="radio" name="hora" value="18:00">
             </fieldset>
 
+            <!-- TODO consertar tupla de eventos -->
             <fieldset>
                 <legend>Eventos</legend>
 
-                <label for="evento0">SMA</label>
+                <label for="evento0" class="clicavel">SMA</label>
                 <input type="checkbox" name="evento0" value="SMA">
 
-                <label for="evento1">DCN</label>
+                <label for="evento1" class="clicavel">DCN</label>
                 <input type="checkbox" name="evento1" value="DCN">
 
-                <label for="evento2">SCN</label>
+                <label for="evento2" class="clicavel">SCN</label>
                 <input type="checkbox" name="evento2" value="SCN">
 
-                <label for="evento3">FECIAQ</label>
+                <label for="evento3" class="clicavel">FECIAQ</label>
                 <input type="checkbox" name="evento3" value="FECIAQ">
             </fieldset>
 
@@ -139,7 +140,7 @@
 
             <div class="checkboxes">
                 <input type="checkbox" name="termos" required>
-                <label for="termos">Eu li e concordo com os</label> <a href="./img/04_Tiny-Writing-Emotion.jpg"
+                <label for="termos" class="clicavel">Eu li e concordo com os</label> <a href="./img/04_Tiny-Writing-Emotion.jpg"
                     target="_blank">termos de uso</a>.
                 <span title="Obrigatório">*</span>
             </div>
