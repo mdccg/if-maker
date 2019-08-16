@@ -85,7 +85,9 @@
 
     <header>
         <h1>IF Maker &#9881;</h1>
-        <h2>Laboratório de fabricação <abbr title="Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul">IFMS</abbr> Aquidauana</h2>
+        <h2>Laboratório de fabricação <abbr
+                title="Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul">IFMS</abbr> Aquidauana
+        </h2>
     </header>
 
     <main>
@@ -97,9 +99,9 @@
             <ul class="cadastro">
                 <?php
                 foreach ($_POST as $chave => $valor) {
-                    $ignora_chave = ignora($chave);
+                    $continua = ignora($chave);
                     
-                    if($ignora_chave)
+                    if($continua)
                         continue;
 
                     $chave = corrige($chave);
@@ -118,17 +120,19 @@
         </details>
     </main>
 
-    <aside>
-        <ul class="links">
-            <li><a href=".">Nossos serviços</a></li>
-            <li><a href="./cadastrar.html">Cadastro</a></li>
-            <li><a href="#">Quem somos</a></li>
-            <li><a href="http://ifms.edu.br/" target="_blank">Site do IFMS</a></li>
-        </ul>
-    </aside>
-
     <footer>
-        <span role="autoria">&copy; Hiroshi & Matheuszinho 2019</span>
+        <aside>
+            <ul class="links">
+                <li><a href=".">Nossos serviços</a></li>
+                <li><a href="./cadastrar.html">Cadastro</a></li>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="http://ifms.edu.br/" target="_blank">Site do IFMS</a></li>
+            </ul>
+        </aside>
+
+        <div role="footer">
+            <span role="copyright">&copy; Hiroshi & Matheuszinho 2019</span>
+        </div>
     </footer>
 </body>
 

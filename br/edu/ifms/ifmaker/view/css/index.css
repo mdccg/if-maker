@@ -26,7 +26,10 @@
 
 textarea { resize: none; }
 
-main { min-height: 512px; }
+main {
+    position: relative;
+    min-height: 100vh;
+}
 
 form > * { display: block; }
 
@@ -50,11 +53,14 @@ body {
     color: var(--branco0);
 }
 
-footer { padding: 16px; } /* @deprecated */
-
 aside { background-color: var(--pomodoro1); }
 
-footer { background-color: var(--pomodoro0); }
+div[role='footer'] {
+    background-color: var(--pomodoro0);
+    padding: 16px;
+}
+
+footer { bottom: 0; }
 
 h1, h2 {
     text-transform: uppercase;

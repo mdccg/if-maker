@@ -1,7 +1,5 @@
 main > *, details > * { margin: 16px 0 16px 16px; }
 
-main { min-height: 32em; }
-
 b { font-weight: bold; }
 
 ul.cadastro {
