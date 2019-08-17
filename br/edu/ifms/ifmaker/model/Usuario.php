@@ -5,13 +5,6 @@ class Usuario {
     private $data_nascimento;
     private $email;
     private $celular;
-    private $endereco;
-    private $numero;
-    private $complemento;
-    private $bairro;
-    private $cep;
-    private $estado;
-    private $cidade;
     private $nacionalidade;
     private $naturalidade;
     private $historico;
@@ -19,34 +12,115 @@ class Usuario {
     private $hora;
     private $eventos;
     private $senha;
-    
-    public function __construct() {
+    private $endereco_id;
+
+    public function __construct($args) {
+        foreach ($args as $chave => $valor) {
+            $this->{$chave} = $valor;
+        }
     }
 
-    /*
-    public function __construct($cpf, $nome, $dataNascimento, $email, $celular, $endereco, $numero, $complemento, $bairro, $cep, $estado, $cidade, $nacionalidade, $naturalidade, $historico, $poc, $hora, $eventos, $senha) {
+    public function getCpf() {
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf) {
         $this->cpf = $cpf;
-        $this->nome = $nome; 
-        $this->dataNascimento = $dataNascimento;
-        $this->email = $email;
-        $this->celular = $celular;
-        $this->endereco = $endereco;
-        $this->numero = $numero;
-        $this->complemento = $complemento;
-        $this->bairro = $bairro;
-        $this->cep = $cep;
-        $this->estado = $estado;
-        $this->cidade = $cidade;
-        $this->nacionalidade = $nacionalidade;
-        $this->naturalidade = $naturalidade;
-        $this->historico = $historico;
-        $this->poc = $poc;
-        $this->hora = $hora;
-        $this->eventos = $eventos;
-        $this->senha = md5($senha);
     }
-    */
 
-    // TODO adicionar getters e setters
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    public function getData_nascimento() {
+        return $this->data_nascimento;
+    }
+
+    public function setData_nascimento($data_nascimento) {
+        $this->data_nascimento = $data_nascimento;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function setEmail($email) {
+        $this->email = $email;
+    }
+
+    public function getCelular() {
+        return $this->celular;
+    }
+
+    public function setCelular($celular) {
+        $this->celular = $celular;
+    }
+
+    public function getNacionalidade() {
+        return $this->nacionalidade;
+    }
+
+    public function setNacionalidade($nacionalidade) {
+        $this->nacionalidade = $nacionalidade;
+    }
+
+    public function getNaturalidade() {
+        return $this->naturalidade;
+    }
+
+    public function setNaturalidade($naturalidade) {
+        $this->naturalidade = $naturalidade;
+    }
+
+    public function getHistorico() {
+        return $this->historico;
+    }
+
+    public function setHistorico($historico) {
+        $this->historico = $historico;
+    }
+
+    public function getPoc() {
+        return $this->poc;
+    }
+
+    public function setPoc($poc) {
+        $this->poc = $poc;
+    }
+
+    public function getHora() {
+        return $this->hora;
+    }
+
+    public function setHora($hora) {
+        $this->hora = $hora;
+    }
+
+    public function getEventos() {
+        return $this->eventos;
+    }
+
+    public function setEventos($eventos) {
+        $this->eventos = $eventos;
+    }
+
+    public function getSenha() {
+        return $this->senha;
+    }
+
+    public function setSenha($senha) {
+        $this->senha = $senha;
+    }
+
+    public function getEndereco_id() {
+        return $this->endereco;
+    }
+
+    public function setEndereco_id($endereco_id) {
+        $this->endereco_id = $endereco_id;
+    }
 }
-?>

@@ -12,77 +12,11 @@
     <meta name="keywords" content="Laboratório, Prototipação, Arduíno">
     <link rel="stylesheet" type="text/css" href="./css/reset.css"> <!-- reset adaptado -->
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <link rel="stylesheet" type="text/css" href="./css/cadastrar.css">
     <link rel="shortcut icon" href="./favicon.ico">
-    <title>Cadastro concluído &#x2015; IF Maker</title>
+    <title>Página de cadastro &#x2015; IF Maker</title>
 </head>
 
 <body>
-    <?php
-    function _isset() {
-        $preenchido = isset($_POST['enviar'])
-            && strlen($_POST['nome']) != 0
-            && strlen($_POST['email']) != 0
-            && strlen($_POST['senha']) != 0
-            && strlen($_POST['termos']) != 0;
-
-        if(!$preenchido)
-            header('Location: .');
-    }
-
-    function ignora($chave) {
-        $chaves = ['senha', 'termos', 'enviar'];
-        return in_array($chave, $chaves);
-    }
-
-    function corrige($chave) {
-        switch ($chave) {
-            case 'dataNascimento':
-                return 'Data de nascimento';            
-            
-            case 'cpf':
-                return 'CPF';
-            
-            case 'endereco':
-                return 'Endereço';
-            
-            case 'numero':
-                return 'Número';
-            
-            case 'cep':
-                return 'CEP';
-            
-            case 'historico':
-                return 'Histórico';
-            
-            case 'poc':
-                return 'Cursos/Palestras/Oficinas';
-        
-            default:
-                return ucfirst($chave);
-        }
-    }
-
-    function _corrige($chave, $valor) {
-        if(strlen($valor) == 0)
-            return NULL;
-
-        switch($chave) {
-        case 'Data de nascimento':
-            $valor = strtotime($valor);
-            return date('d/m/Y', $valor);
-        
-        case 'Histórico':
-            return str_replace("\n", '<br>', $valor);
-        
-        default:
-            return $valor;
-        }
-    }
-    ?>
-    
-    <?php _isset($_POST); ?>
-
     <header>
         <h1>IF Maker &#9881;</h1>
         <h2>Laboratório de fabricação <abbr
@@ -90,41 +24,139 @@
         </h2>
     </header>
 
-    <main>
-        <p>Usuário cadastrado com êxito!</p>
+    <main class="container">
+        <h3>Cadastre-se. É de graça e não dói nada.<sub>(A menos que o seu teclado tenha espinhos. Ouch!)</sub></h3>
 
-        <details>
-            <summary>Dados do usuário</summary>
+        <div class="conteudo caixinha">
+            <p>É digno de nota que temos uma política de segurança muito rígida, para garantir que suas informações
+                sejam mantidas no mais absoluto sigilo.</p>
+        </div>
 
-            <ul class="cadastro">
-                <?php
-                foreach ($_POST as $chave => $valor) {
-                    $continua = ignora($chave);
-                    
-                    if($continua)
-                        continue;
+        <form action="./cadastro.php" method="POST">
+            <label for="nome">Nome: <span title="Obrigatório">*</span></label>
+            <input type="text" name="nome" required>
 
-                    $chave = corrige($chave);
-                    $valor = _corrige($chave, $valor);
+            <label for="dataNascimento">Data de nascimento:</label>
+            <input type="date" name="dataNascimento">
 
-                    if($valor == NULL)
-                        continue;
-                ?>
+            <label for="cpf">CPF:</label>
+            <input type="text" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" name="cpf" placeholder="012.456.789-01"
+                maxlength="14">
 
-                <li>
-                    <p><b><?= $chave ?></b>: <?= $valor ?></p>
-                </li>
-                <?php } ?>
+            <label for="email">Endereço eletrônico: <span title="Obrigatório">*</span></label>
+            <input type="email" name="email" required>
 
-            </ul>
-        </details>
+            <label for="celular">Telefone celular:</label>
+            <input type="phone" pattern="\([0-9]{3}\) [0-9]{1} [0-9]{4}-[0-9]{4}" name="celular"
+                placeholder="(067) 9 4002-8922" maxlength="17">
+
+            <!-- TODO listar endereços -->
+            <label for="endereco">Logradouro:</label>
+            <input type="text" name="endereco">
+
+            <label for="numero">Número:</label>
+            <input type="text" pattern="[0-9]{,}" name="numero">
+
+            <label for="complemento">Complemento:</label>
+            <input type="text" name="complemento">
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" name="bairro">
+
+            <label for="cep">CEP:</label>
+            <input type="text" pattern="[0-9]{5}-[0-9]{3}" name="cep" placeholder="79200-000" maxlength="9">
+
+            <label for="estado">Estado:</label>
+            <select name="estado">
+                <option>Estado não especificado</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MT">Mato Grosso</option>
+            </select>
+
+            <label for="cidade">Cidade:</label>
+            <select name="cidade">
+                <option>Cidade não especificada</option>
+                <option value="Ponta Porã">Ponta Porã</option>
+                <option value="Aquidauana">Aquidauana</option>
+                <option value="Miranda">Miranda</option>
+            </select>
+
+            <label for="nacionalidade">Nacionalidade:</label>
+            <input type="text" name="nacionalidade">
+
+            <label for="naturalidade">Naturalidade:</label>
+            <input type="text" name="naturalidade">
+
+            <label for="historico">Histórico escolar:</label>
+            <textarea rows="16" cols="32" name="historico"></textarea>
+
+            <fieldset>
+                <legend>Cursos/Palestras/Oficinas</legend>
+
+                <label for="poc">Arduíno</label>
+                <input type="radio" name="poc" value="Arduíno">
+
+                <label for="poc">Locução</label>
+                <input type="radio" name="poc" value="Locução">
+
+                <label for="poc">Rádio</label>
+                <input type="radio" name="poc" value="Rádio">
+            </fieldset>
+
+            <fieldset>
+                <legend>Horários disponíveis</legend>
+
+                <label for="hora">09h</label>
+                <input type="radio" name="hora" value="09:00">
+
+                <label for="hora">11h</label>
+                <input type="radio" name="hora" value="11:00">
+
+                <label for="hora">15h</label>
+                <input type="radio" name="hora" value="15:00">
+
+                <label for="hora">18h</label>
+                <input type="radio" name="hora" value="18:00">
+            </fieldset>
+
+            <!-- TODO consertar tupla de eventos -->
+            <fieldset>
+                <legend>Eventos</legend>
+
+                <label for="evento0" class="clicavel">SMA</label>
+                <input type="checkbox" name="evento0" value="SMA">
+
+                <label for="evento1" class="clicavel">DCN</label>
+                <input type="checkbox" name="evento1" value="DCN">
+
+                <label for="evento2" class="clicavel">SCN</label>
+                <input type="checkbox" name="evento2" value="SCN">
+
+                <label for="evento3" class="clicavel">FECIAQ</label>
+                <input type="checkbox" name="evento3" value="FECIAQ">
+            </fieldset>
+
+            <label for="senha">Senha: <span title="Obrigatório">*</span></label>
+            <input type="password" name="senha" required>
+
+            <div class="checkboxes">
+                <input type="checkbox" name="termos" required>
+                <label for="termos" class="clicavel">Eu li e concordo com os</label> <a
+                    href="./img/04_Tiny-Writing-Emotion.jpg" target="_blank">termos de uso</a>.
+                <span title="Obrigatório">*</span>
+            </div>
+
+            <input type="submit" value="Enviar" name="enviar">
+
+            <input type="reset" value="Reset" name="limpar">
+        </form>
     </main>
 
     <footer>
         <aside>
             <ul class="links">
                 <li><a href=".">Nossos serviços</a></li>
-                <li><a href="./cadastrar.html">Cadastro</a></li>
+                <li><a href="#">Cadastro</a></li>
                 <li><a href="#">Quem somos</a></li>
                 <li><a href="http://ifms.edu.br/" target="_blank">Site do IFMS</a></li>
             </ul>
@@ -134,6 +166,8 @@
             <span role="copyright">&copy; Hiroshi & Matheuszinho 2019</span>
         </div>
     </footer>
+
+    <script language="javascript" src="./js/cadastrar.js"></script>
 </body>
 
 </html>
