@@ -12,26 +12,34 @@
     <meta name="keywords" content="Laboratório, Prototipação, Arduíno">
     <link rel="stylesheet" type="text/css" href="./css/reset.css"> <!-- reset adaptado -->
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <link rel="stylesheet" type="text/css" href="./css/cadastro.css">
+    <link rel="stylesheet" type="text/css" href="./css/cadastrar.css">
     <link rel="shortcut icon" href="./favicon.ico">
     <title>Cadastro concluído &#x2015; IF Maker</title>
 </head>
 
 <body>
     <?php
+    include_once "./../dao/EnderecoDAO.php";
+    include_once "./../dao/UsuarioDAO.php";
+    include_once "./../model/Endereco.php";
+    include_once "./../model/Usuario.php";
+    
+    
     function _isset() {
         $preenchido = isset($_POST['enviar'])
-            && strlen($_POST['nome']) != 0
+            && strlen($_POST['celular']) != 0
+            && strlen($_POST['termos']) != 0
             && strlen($_POST['email']) != 0
             && strlen($_POST['senha']) != 0
-            && strlen($_POST['termos']) != 0;
-
+            && strlen($_POST['nome']) != 0
+            && strlen($_POST['cpf']) != 0; 
+        
         if(!$preenchido)
             header('Location: .');
     }
 
     function ignora($chave) {
-        $chaves = ['senha', 'termos', 'enviar'];
+        $chaves = ['adicionar-endereco', 'senha', 'termos', 'enviar'];
         return in_array($chave, $chaves);
     }
 
@@ -81,6 +89,32 @@
     }
 
     function persiste() {
+        $cadastrado = isset($_POST['endereco']);
+
+        $endereco = Array(
+            'id' => ($cadastrado ? $_POST['endereco'] : NULL),
+            'logradouro' => $_POST['logradouro'],
+            'numero' => $_POST['numero'],
+            'complemento' => $_POST['complemento'],
+            'bairro' => $_POST['bairro'],
+            'cep' => $_POST['cep'],
+            'estado' => $_POST['estado'],
+            'cidade' => $_POST['cidade']
+        );
+
+        if(!$cadastrado)
+            unset($endereco['id']);
+
+        if($_POST['adicionar-endereco'] == 'on') {
+            $endereco = new Endereco($endereco);
+
+            $enderecoDAO = new EnderecoDAO;
+            $enderecoDAO->adicionaEndereco($endereco);
+            
+            $endereco = $enderecoDAO->buscaEndereco($_POST['logradouro']);
+            $endereco_id = $endereco->getId();
+        }
+
         $usuario = Array(
             'cpf' => $_POST['cpf'],
             'nome' => $_POST['nome'],
@@ -93,24 +127,23 @@
             'poc' => $_POST['poc'],
             'hora' => $_POST['hora'],
             'eventos' => $_POST['eventos'],
-            'senha' => $_POST['senha']
+            'senha' => md5($_POST['senha']),
+            'endereco_id' => $_POST['endereco']
         );
 
-        $endereco = Array(
-            'logradouro' => $_POST['logradouro'],
-            'numero' => $_POST['numero'],
-            'complemento' => $_POST['complemento'],
-            'bairro' => $_POST['bairro'],
-            'cep' => $_POST['cep'],
-            'estado' => $_POST['estado'],
-            'cidade' => $_POST['cidade']
-        );
+        if($_POST['adicionar-endereco'] == 'on')
+            $usuario['endereco_id'] = $endereco_id;
 
-        // TODO persistir dados
+        $usuario = new Usuario($usuario);
+        $usuarioDAO = new UsuarioDAO;
+        return $usuarioDAO->adicionaUsuario($usuario);
     }
     ?>
     
-    <?php _isset($_POST); ?>
+    <?php
+    _isset($_POST);
+    persiste();
+    ?>
 
     <header>
         <h1>IF Maker &#9881;</h1>
@@ -153,7 +186,7 @@
         <aside>
             <ul class="links">
                 <li><a href=".">Nossos serviços</a></li>
-                <li><a href="./cadastrar.php">Cadastro</a></li>
+                <li><a href="./formulario.php">Cadastro</a></li>
                 <li><a href="#">Quem somos</a></li>
                 <li><a href="http://ifms.edu.br/" target="_blank">Site do IFMS</a></li>
             </ul>

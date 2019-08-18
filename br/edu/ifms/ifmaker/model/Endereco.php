@@ -77,5 +77,15 @@ class Endereco {
     public function setCidade($cidade) {
         $this->cidade = $cidade;
     }
+
+    public function toArray() {
+        $array = Array();
+        
+        foreach($this as $atributo => $valor) {
+            $array{$atributo} = $valor;
+        }
+
+        return $array;
+    }
 }
 ?>

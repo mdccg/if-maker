@@ -1,0 +1,7 @@
+b { font-weight: bold; }
+
+td {
+    background-color: var(--verde0);
+    border: 2px solid var(--verde1);
+    padding: 8px;
+}

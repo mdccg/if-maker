@@ -1,56 +1,93 @@
 <?php
-include "./../connection/ConnectionFactory.php";
-include "./../model/Usuario.php";
+include_once "./../connection/ConnectionFactory.php";
+include_once "./../model/Usuario.php";
 
+
+function parseUsuario($array) {
+    return new Usuario($array);
+}
 
 class UsuarioDAO {
     public $connection;
 
-    function adicionaUsuario($array) {
+    function adicionaUsuario($usuario) {
         $this->connection = getConnection();
-        pg_insert($this->connection, 'usuarios', $array);
+        pg_insert($this->connection, 'usuarios', $usuario->toArray());
+        return pg_close($this->connection);
+    }
+
+    public function buscaUsuarios() {
+        $this->connection = getConnection();
+
+        $sql = "SELECT * FROM usuarios;";
+        $query = pg_query($this->connection, $sql);
+        $arrays = pg_fetch_all($query);
+        
         pg_close($this->connection);
+
+        return array_map('parseUsuario', $arrays);
     }
 
     function buscaUsuario($cpf) {
         $this->connection = getConnection();
+
         $sql = "SELECT * FROM usuarios WHERE cpf = '$cpf';";
-        
         $query = pg_query($this->connection, $sql);
-        pg_close($this->connection);
-        
         $array = pg_fetch_assoc($query);
+        
+        pg_close($this->connection);
+
         return new Usuario($array);
     }
 
     function atualizaUsuario($usuario) {
-        // TODO CR[U]D
+        $this->connection = getConnection();
+        
+        $cpf = $usuario->getCpf();
+        $db_usuario = $this->buscaUsuario($cpf);
+        $array = $usuario->toArray();
+        $db_array = $db_usuario->toArray();
+        print_r($array);
+        
+        pg_update($this->connection, 'usuarios', $array, $db_array);
+        return pg_close($this->connection);
     }
 
-    function deletaUsuario($array) {
+    function deletaUsuario($usuario) {
         $this->connection = getConnection();
-        pg_delete($this->connection, 'usuarios', $array); // TODO cast Usuario <=> Array e vice-versa
-        pg_close($this->connection);
+        pg_delete($this->connection, 'usuarios', $usuario->toArray());
+        return pg_close($this->connection);
     }
 }
+// [C]RUD
+/*
+include_once "./antrophila.php";
+$array = getAntrophila();
 
-$usuarioDAO = new UsuarioDAO;
-
-/* [C]RUD
-include "antrophila.php";
+$usuario = new Usuario($array);
 $usuarioDAO->adicionaUsuario($usuario);
 */
 
-/* C[R]UD
+// C[R]UD
+/*
 $usuario = $usuarioDAO->buscaUsuario('123.456.789-01');
-print_r($usuario);
+$array = $usuario->toArray(); // TODO apagar
 */
 
-/* CR[U]D */
+// FIXME
+// CR[U]D
+/*
+$usuario = $usuarioDAO->buscaUsuario('123.456.789-01');
+$usuario->setCelular('(067) 9 9222-4131');
+$usuarioDAO->atualizaUsuario($usuario);
 
-/* CRU[D]
+$usuario = $usuarioDAO->buscaUsuario('123.456.789-01');
+$array = $usuario->toArray();
+*/
+
+// CRU[D]
+/*
+$usuario = $usuarioDAO->buscaUsuario('123.456.789-01');
 $usuarioDAO->deletaUsuario($usuario);
 */
 ?>
-
-<!-- <pre><?php print_r($usuario) ?></pre> -->

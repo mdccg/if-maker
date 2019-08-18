@@ -12,11 +12,15 @@
     <meta name="keywords" content="Laboratório, Prototipação, Arduíno">
     <link rel="stylesheet" type="text/css" href="./css/reset.css"> <!-- reset adaptado -->
     <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/formulario.css">
     <link rel="shortcut icon" href="./favicon.ico">
     <title>Página de cadastro &#x2015; IF Maker</title>
 </head>
 
 <body>
+    <?php
+    include "./../dao/EnderecoDAO.php";
+    ?>
     <header>
         <h1>IF Maker &#9881;</h1>
         <h2>Laboratório de fabricação <abbr
@@ -32,54 +36,78 @@
                 sejam mantidas no mais absoluto sigilo.</p>
         </div>
 
-        <form action="./cadastro.php" method="POST">
+        <form action="./cadastrar.php" method="POST">
             <label for="nome">Nome: <span title="Obrigatório">*</span></label>
             <input type="text" name="nome" required>
 
             <label for="dataNascimento">Data de nascimento:</label>
             <input type="date" name="dataNascimento">
 
-            <label for="cpf">CPF:</label>
+            <label for="cpf">CPF: <span title="Obrigatório">*</span></label>
             <input type="text" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" name="cpf" placeholder="012.456.789-01"
                 maxlength="14">
 
             <label for="email">Endereço eletrônico: <span title="Obrigatório">*</span></label>
             <input type="email" name="email" required>
 
-            <label for="celular">Telefone celular:</label>
+            <label for="celular">Telefone celular: <span title="Obrigatório">*</span></label>
             <input type="phone" pattern="\([0-9]{3}\) [0-9]{1} [0-9]{4}-[0-9]{4}" name="celular"
                 placeholder="(067) 9 4002-8922" maxlength="17">
+            
+            <label for="endereco">Endereço:</label>
+            <select name="endereco">
+                <?php
+                $enderecoDAO = new EnderecoDAO;
+                $enderecos = $enderecoDAO->buscaEnderecos();
 
-            <!-- TODO listar endereços -->
-            <label for="endereco">Logradouro:</label>
-            <input type="text" name="endereco">
-
-            <label for="numero">Número:</label>
-            <input type="text" pattern="[0-9]{,}" name="numero">
-
-            <label for="complemento">Complemento:</label>
-            <input type="text" name="complemento">
-
-            <label for="bairro">Bairro:</label>
-            <input type="text" name="bairro">
-
-            <label for="cep">CEP:</label>
-            <input type="text" pattern="[0-9]{5}-[0-9]{3}" name="cep" placeholder="79200-000" maxlength="9">
-
-            <label for="estado">Estado:</label>
-            <select name="estado">
-                <option>Estado não especificado</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MT">Mato Grosso</option>
+                foreach($enderecos as $indice => $endereco) {
+                ?>
+                
+                <option value="<?= $endereco->getId() ?>">
+                    <?= $endereco->getLogradouro() . ', '
+                        . $endereco->getNumero() . ', '
+                        . $endereco->getBairro() . ', ' 
+                        . $endereco->getCidade() . '-' 
+                        . $endereco->getEstado() ?></option>
+                <?php } ?>            
             </select>
+            
+            <div class="checkboxes" onclick="adicionarEndereco()">
+                <input type="checkbox" name="adicionar-endereco">
+                <label for="adicionar-endereco" class="clicavel">Oh, céus! Meu endereço não está listado!</label>
+            </div>
+            
+            <div role="adicionar-endereco">
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" name="logradouro">
 
-            <label for="cidade">Cidade:</label>
-            <select name="cidade">
-                <option>Cidade não especificada</option>
-                <option value="Ponta Porã">Ponta Porã</option>
-                <option value="Aquidauana">Aquidauana</option>
-                <option value="Miranda">Miranda</option>
-            </select>
+                <label for="numero">Número:</label>
+                <input type="text" pattern="[0-9]{,}" name="numero">
+
+                <label for="complemento">Complemento:</label>
+                <input type="text" name="complemento">
+
+                <label for="bairro">Bairro:</label>
+                <input type="text" name="bairro">
+
+                <label for="cep">CEP:</label>
+                <input type="text" pattern="[0-9]{5}-[0-9]{3}" name="cep" placeholder="79200-000" maxlength="9">
+
+                <label for="estado">Estado:</label>
+                <select name="estado">
+                    <option>Estado não especificado</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                </select>
+
+                <label for="cidade">Cidade:</label>
+                <select name="cidade">
+                    <option>Cidade não especificada</option>
+                    <option value="Ponta Porã">Ponta Porã</option>
+                    <option value="Aquidauana">Aquidauana</option>
+                    <option value="Miranda">Miranda</option>
+                </select>
+            </div>
 
             <label for="nacionalidade">Nacionalidade:</label>
             <input type="text" name="nacionalidade">
@@ -167,7 +195,7 @@
         </div>
     </footer>
 
-    <script language="javascript" src="./js/cadastrar.js"></script>
+    <script language="javascript" src="./js/formulario.js"></script>
 </body>
 
 </html>

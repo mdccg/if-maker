@@ -123,4 +123,14 @@ class Usuario {
     public function setEndereco_id($endereco_id) {
         $this->endereco_id = $endereco_id;
     }
+
+    public function toArray() {
+        $array = Array();
+        
+        foreach($this as $atributo => $valor) {
+            $array{$atributo} = $valor;
+        }
+
+        return $array;
+    }
 }

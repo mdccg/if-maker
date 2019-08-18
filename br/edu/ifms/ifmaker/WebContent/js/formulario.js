@@ -1,3 +1,10 @@
+function adicionarEndereco() {
+    var checkbox = document.querySelector("input[name='adicionar-endereco']");
+    var div = document.querySelector("div[role='adicionar-endereco']");
+    
+    !checkbox.checked ? div.style.display = 'block' : div.style.display = 'none';
+}
+
 function labelClicavel(event) {
     if (event.target.tagName != "LABEL") return;
 
