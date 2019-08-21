@@ -5,3 +5,8 @@ td {
     border: 2px solid var(--verde1);
     padding: 8px;
 }
+
+.overflow {
+    border: 2px solid var(--verde1);
+    overflow-x: auto;
+}

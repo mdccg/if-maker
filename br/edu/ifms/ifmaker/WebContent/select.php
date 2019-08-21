@@ -45,12 +45,12 @@
 
             case 'poc':
                 return 'Cursos/Palestras/Oficinas';
-
+            
             default:
                 return ucfirst($atributo);
         }
     }
-
+    
     function ignora($atributo) {
         $array = [ 'nacionalidade', 'naturalidade', 'historico', 'senha', 'eventos',
             'endereco_id', 'celular'];
@@ -72,7 +72,7 @@
     </header>
 
     <main class="container">
-        <div style="overflow-x: auto">
+        <div class="overflow">
             <table>
                 <thead>
                     <tr>
@@ -102,7 +102,7 @@
             header('Location: .');
         ?>
 
-        <div style="overflow-x: auto">
+        <div class="overflow">
             <table>
                 <thead>
                     <tr>

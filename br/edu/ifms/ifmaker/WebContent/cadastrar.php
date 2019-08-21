@@ -39,7 +39,8 @@
     }
 
     function ignora($chave) {
-        $chaves = ['adicionar-endereco', 'senha', 'termos', 'enviar'];
+        $chaves = ['endereco', 'adicionar-endereco', 'senha', 'termos',
+		'enviar'];
         return in_array($chave, $chaves);
     }
 
@@ -50,9 +51,6 @@
             
             case 'cpf':
                 return 'CPF';
-            
-            case 'endereco':
-                return 'Endereço';
             
             case 'numero':
                 return 'Número';
