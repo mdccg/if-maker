@@ -1,4 +1,0 @@
-[Sun Aug 18 02:02:17 2019] PHP Warning:  pg_insert(): Query failed: ERROR:  duplicate key value violates unique constraint &quot;enderecos_pkey&quot;
-DETAIL:  Key (id)=(2) already exists. in /home/matheus/workspace/ifmaker/br/edu/ifms/ifmaker/dao/EnderecoDAO.php on line 15
-[Sun Aug 18 02:02:17 2019] PHP Warning:  Invalid argument supplied for foreach() in /home/matheus/workspace/ifmaker/br/edu/ifms/ifmaker/model/Endereco.php on line 13
-[Sun Aug 18 02:02:17 2019] PHP Notice:  Undefined index: eventos in /home/matheus/workspace/ifmaker/br/edu/ifms/ifmaker/WebContent/cadastrar.php on line 129

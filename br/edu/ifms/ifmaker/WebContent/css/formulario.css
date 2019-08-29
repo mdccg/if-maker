@@ -1,9 +1,0 @@
-div[role='adicionar-endereco'] > input { margin-bottom: 16px; }
-
-div[role='adicionar-endereco'] > label { margin-top: 16px; }
-
-span[role='adicionar-endereco'] { margin-bottom: 16px; }
-
-div[role='adicionar-endereco'] > * { display: block; }
-
-div[role='adicionar-endereco'] { display: none; }

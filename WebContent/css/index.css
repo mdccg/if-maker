@@ -1,0 +1,306 @@
+/*
+ * Querido mantenedor:
+ *
+ * Quando eu escrevi este código, apenas eu e Deus
+ * sabíamos o que era.
+ * Agora, só Deus sabe!
+ *
+ * Então se você acabou de tentar 'otimizar'
+ * esta rotina (e falhou),
+ * por favor incremente o seguinte contador
+ * como um aviso
+ * para o próximo cara:
+ *
+ * total_de_horas_perdidas_aqui = 67
+ */
+
+ @font-face {
+    font-family: 'Open Sans Condensed';
+    src: url(./../fonts/OpenSansCondensed-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: italic;
+    src: url(./../fonts/OpenSansCondensed-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: 'Open Sans Condensed';
+    font-weight: bold;
+    src: url(./../fonts/OpenSansCondensed-Bold.ttf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --fonte: 'Open Sans Condensed', sans-serif;
+    --cinza: #2F2E2E;
+}
+
+body {
+    font-family: var(--fonte);
+    color: var(--cinza);
+    font-size: 2.56vh;
+}
+
+.container {
+    margin: auto;
+    width: 84%;
+}
+
+.bkgd0 {
+    background-image: url(./../img/bkgd0.jpg);
+}
+
+.bkgd1 {
+    background-image: url(./../img/bkgd1.webp);
+}
+
+.bkgd2 {
+    background-image: url(./../img/bkgd2.webp);
+}
+
+.bkgd3 {
+    background-image: url(./../img/bkgd3.jpg);
+}
+
+.bkgd0, .bkgd1, .bkgd2, .bkgd3 {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+b {
+    font-weight: bold;
+}
+
+header {
+    box-shadow: 0 4px 64px var(--cinza);
+    background-color: var(--cinza);
+    position: fixed;
+    height: 64px;
+    width: 100%;
+    z-index: 1;
+}
+
+header > nav > ul {
+    display: flex;
+}
+
+header > nav > ul > li {
+    width: 100%;
+}
+
+header > nav > ul > li > a {
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 16px;
+    color: white;
+    top: 24px;
+}
+
+section {
+    padding: 128px 0 64px 0;
+    min-height: 100vh;
+}
+
+object#ifmaker_logo {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    padding-bottom: 256px;
+    padding-top: 32px;
+    font-weight: bold;
+    font-size: 64px;
+}
+
+h3 {
+    padding-top: 16px;
+}
+
+h2, h3 {
+    font-size: 48px;
+}
+
+*[branco] {
+    color: white;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+div.bordinha {
+    margin: 16px auto 16px auto;
+    width: 36px;
+    height: 2px;
+}
+
+div.inscricoes {
+    background-color: white;
+    box-sizing: border-box;
+    min-height: 76vh;
+    margin: auto;
+    width: 662px;
+}
+
+.colunas {
+    display: flex;
+}
+
+.equip {
+    margin: 64px auto 0 auto;
+    width: 64%;
+}
+
+.equip > li > figure > object {
+    filter: invert(100%); /* <-- GAMBIARRA LVL 21 */
+}
+
+.equip > li > figure > figcaption {
+    text-transform: uppercase;
+    padding-top: 16px;
+    font-size: 32px;
+}
+
+.equip > li > figure > p {
+    padding-top: 16px;
+    line-height: 1.5;
+    font-size: 24px;
+    width: 256px;
+}
+
+.equip > * {
+    text-align: center;
+    color: white;
+    margin: auto;
+    z-index: 0;
+}
+
+.caixa-alta {
+    text-transform: uppercase;
+}
+
+div[role='info-contato'],
+form {
+    padding: 16px;
+    width: 50%;
+}
+
+div[role='info-contato'] > span,
+div[role='info-contato'] > address {
+    line-height: 2.56;
+    display: block;
+}
+
+form > * {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+form > input,
+form > select {
+    border: 1px solid var(--cinza);
+    font-family: var(--fonte);
+    box-sizing: border-box;
+    font-size: 16px;
+    display: block;
+    outline: none;
+    resize: none;
+    height: 4vh;
+    width: 83%;
+}
+
+form > input[type='submit'] {
+    background-color: var(--cinza);
+    width: fit-content;
+    color: white;
+}
+
+footer {
+    box-shadow: 0 -4px 64px var(--cinza);
+    background-color: var(--cinza);
+    text-align: center;
+    padding-top: 2vh;
+    min-height: 8vh;
+    color: white;
+    width: 100%;
+    bottom: 0;
+}
+
+.janelinha {
+    background-color: white;
+    margin: auto;
+    width: 83%;
+}
+
+div#1o, div#2o {
+    clear: both;
+}
+
+section#o-q-eh > p {
+    width: 64%;
+}
+
+section#o-q-eh > p,
+section#quem-somos > div > p {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 24px;
+    margin: auto;
+}
+
+.galeria > div.linha > li > figure > img {
+    width: 100%;
+}
+
+.linha {
+    padding-top: 16px;
+    display: flex;
+}
+
+section#quem-somos > div {
+    background-color: white;
+    margin: auto;
+    width: 662px;
+}
+
+section#quem-somos > div > h3 {
+    padding-top: 32px;
+}
+
+section#quem-somos > div > p {
+    line-height: 1.5;
+    font-size: 24px;
+}
+
+section#quem-somos > div:last-child {
+    padding-bottom: 32px;
+}
+
+a:hover {
+    text-shadow: 0 4px 8px white;
+    transition-duration: 0.4s;
+}
+
+small {
+    padding-right: 8px;
+    text-align: right;
+    padding-top: 16px;
+    display: block;
+}

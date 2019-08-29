@@ -1,0 +1,20 @@
+.atributo {
+    display: flex;
+    padding: 16px;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+dt, dd {
+    font-size: 24px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    padding-left: 8px;
+}
