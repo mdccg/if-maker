@@ -1,5 +1,5 @@
 <?php
-include_once './Docente.php';
+require_once 'Docente.php';
 
 class Curso {
     private $id;

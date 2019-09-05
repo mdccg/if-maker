@@ -1,7 +1,4 @@
 <?php
-include_once './../connection/ConnectionFactory.php';
-include_once './../model/Usuario.php';
-
 class UsuarioDAO {
     public function createUsuario($usuario) {
         $connection = getConnection();

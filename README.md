@@ -5,12 +5,15 @@ O servidor deve ser iniciado na raiz do projeto para que os arquivos PHP da ``We
 ```
 .
 ├── docs
+│   ├── ifmaker2.sql
 │   ├── ifmaker.pdf
 │   └── ifmaker.sql
+├── index.php
 ├── README.md
 ├── src
 │   ├── connection
-│   │   └── ConnectionFactory.php
+│   │   ├── ConnectionFactory.php
+│   │   └── dados.php
 │   ├── dao
 │   │   ├── CursoDAO.php
 │   │   ├── DiscenteDAO.php
@@ -56,7 +59,7 @@ O servidor deve ser iniciado na raiz do projeto para que os arquivos PHP da ``We
         ├── Cadastrar.php
         └── Profile.php
 
-11 directories, 40 files
+11 directories, 43 files
 ```
 
 ``$ php --version``
@@ -67,6 +70,6 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Zend OPcache v7.2.19-0ubuntu0.18.04.2, Copyright (c) 1999-2018, by Zend Technologies
 ```
 
-## _TO DO LIST_
+## _TO-DO LIST_
 - [ ] Corrigir erro da função``pg_update``;
 - [ ] Terminar pacote DAO.

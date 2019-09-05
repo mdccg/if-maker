@@ -1,5 +1,5 @@
 <?php
-include_once './../model/Discente.php';
+require_once '../model/Discente.php';
 
 class DiscenteDAO {
     public function createDiscente() {

@@ -1,5 +1,5 @@
 <?php
-include './../model/Curso.php';
+require_once '../model/Curso.php';
 
 class CursoDAO {
     public function createCurso() {

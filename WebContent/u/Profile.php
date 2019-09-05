@@ -2,18 +2,16 @@
 <html lang="pt-br">
 <head>
     <?php
-    include_once './../../src/connection/ConnectionFactory.php';
-    include_once './../../src/dao/UsuarioDAO.php';
-    include_once './../../src/model/Usuario.php';
+    require_once '../../src/connection/ConnectionFactory.php';
+    require_once '../../src/dao/UsuarioDAO.php';
+    require_once '../../src/model/Usuario.php';
 
     function correcao($atributo) {
         switch($atributo) {
-            case 'id':
-                return 'ID';
-            
             case 'email':
                 return 'E-mail';
             
+            case 'id':
             case 'cpf':
             case 'rg':
                 return strtoupper($atributo);
@@ -30,27 +28,29 @@
     }
 
     $id = isset($_GET['id']) ? $_GET['id'] : NULL;
+    
     $usuarioDAO = new UsuarioDAO;
     $usuario = $usuarioDAO->readUsuario($id);
+    if($usuario->getId() != $id) header('Location: ../index.html');
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./../css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./../css/index.css">
-    <link rel="stylesheet" type="text/css" href="./../css/perfil.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/perfil.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <title><?= $usuario->getNome() ?> &#x2015; IF Maker</title>
 </head>
 <body>
     <header>
         <nav class="container">
             <ul>
-                <li><a href="./../#home">Home</a></li>
-                <li><a href="./../#o-q-eh">O que é?</a></li>
-                <li><a href="./../#quem-somos">Quem somos</a></li>
-                <li><a href="./../#equip">Equipamentos</a></li>
-                <li><a href="./../#inscricoes">Inscrições IF Maker</a></li>
+                <li><a href="../#home">Home</a></li>
+                <li><a href="../#o-q-eh">O que é?</a></li>
+                <li><a href="../#quem-somos">Quem somos</a></li>
+                <li><a href="../#equip">Equipamentos</a></li>
+                <li><a href="../#inscricoes">Inscrições IF Maker</a></li>
             </ul>
         </nav>
     </header>
