@@ -25,7 +25,7 @@ CREATE TABLE "cursos" (
   "titulo" varchar,
   "turno" varchar,
   "horario" time,
-  "docente_suap" varchar REFERENCES "docente"("suap")
+  "docente_suap" varchar REFERENCES "docentes"("suap")
 );
 
 CREATE TABLE "usuarios_cursos" (
