@@ -1,9 +1,9 @@
 <?php
 class Inscricao {
+    private $id;
     private $nome;
     private $data_inscricao;
     private $email;
-    private $evento;
     private $cpf;
     private $rg;
     private $orgao_emissor;
@@ -22,6 +22,14 @@ class Inscricao {
             $assoc{$chave} = $valor;
         }
         return $assoc;
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     public function getNome() {
@@ -48,14 +56,6 @@ class Inscricao {
         $this->email = $email;
     }
 
-    public function getEvento() {
-        return $this->evento;
-    }
-
-    public function setEvento($evento) {
-        $this->evento = $evento;
-    }
-
     public function getCpf() {
         return $this->cpf;
     }
@@ -72,6 +72,28 @@ class Inscricao {
         $this->rg = $rg;
     }
 
-    // TODO outros atributos
+    public function getOrgao_emissor() {
+        return $this->orgao_emissor;
+    }
+    
+    public function setOrgao_emissor($orgao_emissor) {
+        $this->orgao_emissor = $orgao_emissor;
+    }
+
+    public function getNaturalidade() {
+        return $this->naturalidade;
+    }
+
+    public function setNaturalidade($naturalidade) {
+        $this->naturalidade = $naturalidade;
+    }
+
+    public function getData_nascimento() {
+        return $this->data_nascimento;
+    }
+
+    public function setData_nascimento($data_nascimento) {
+        $this->data_nascimento = $data_nascimento;
+    }
 }
 ?>

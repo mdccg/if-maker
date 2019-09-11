@@ -116,7 +116,7 @@ section {
     min-height: 100vh;
 }
 
-object#ifmaker_logo {
+img#ifmaker_logo {
     display: block;
     margin: auto;
 }

@@ -1,35 +1,35 @@
-CREATE TABLE "usuarios" (
-  "id" int PRIMARY KEY,
-  "nome" varchar,
-  "email" varchar,
-  "cpf" varchar,
-  "rg" varchar,
-  "oe" varchar,
-  "data_nascimento" date,
-  "cidade" varchar,
-  "estado" varchar
+CREATE TABLE `palestrante` (
+  `id` varchar(255) PRIMARY KEY,
+  `nome` varchar(255),
+  `email` varchar(255),
+  `cpf` varchar(255),
+  `rg` varchar(255),
+  `orgao_emissor` varchar(255),
+  `naturalidade` varchar(255),
+  `data_nascimento` date
 );
 
-CREATE TABLE "discentes" (
-  "ra" varchar PRIMARY KEY,
-  "usuario_id" int REFERENCES "usuarios"("id")
+CREATE TABLE `evento` (
+  `id` varchar(255) PRIMARY KEY,
+  `titulo` varchar(255),
+  `data_evento` timestamp,
+  `palestrante_id` varchar(255) REFERENCES `palestrante`(`id`)
 );
 
-CREATE TABLE "docentes" (
-  "suap" varchar PRIMARY KEY,
-  "usuario_id" int REFERENCES "usuarios"("id")
+CREATE TABLE `inscricao` (
+  `id` varchar(255) PRIMARY KEY,
+  `nome` varchar(255),
+  `data_inscricao` timestamp,
+  `email` varchar(255),
+  `cpf` varchar(255),
+  `rg` varchar(255),
+  `orgao_emissor` varchar(255),
+  `naturalidade` varchar(255),
+  `data_nascimento` date
 );
 
-CREATE TABLE "cursos" (
-  "id" int PRIMARY KEY,
-  "titulo" varchar,
-  "turno" varchar,
-  "horario" time,
-  "docente_suap" varchar REFERENCES "docentes"("suap")
-);
-
-CREATE TABLE "usuarios_cursos" (
-  "usuario_id" int REFERENCES "usuarios"("id"),
-  "curso_id" int REFERENCES "cursos"("id"),
-  PRIMARY KEY("usuario_id", "curso_id")
+CREATE TABLE `inscricao_evento` (
+  `inscricao_id` varchar(255) REFERENCES `inscricao`(`id`),
+  `evento_id` varchar(255) REFERENCES `evento`(`id`),
+  PRIMARY KEY(`inscricao_id`, `evento_id`)
 );

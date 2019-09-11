@@ -7,14 +7,14 @@ class InscricaoDAO {
         $connection = getConnection();
 
         $assoc = $inscricao->toAssoc();
-        $sql = 'INSERT INTO inscricao VALUES (?, now(), ?, ?, ?, ?, ?, ?, ?);';
+        $sql = 'INSERT INTO inscricao VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
         $statement = mysqli_prepare($connection, $sql);
         
-        mysqli_stmt_bind_param($statement, 'sssisssss',
+        mysqli_stmt_bind_param($statement, 'sssssssss',
+            $assoc['id'],
             $assoc['nome'],
             $assoc['data_inscricao'],
             $assoc['email'],
-            $assoc['evento'],
             $assoc['cpf'],
             $assoc['rg'],
             $assoc['orgao_emissor'],
@@ -28,9 +28,13 @@ class InscricaoDAO {
         $connection = getConnection();
         
         $result = $connection->query('SELECT * FROM inscricao;');
-        $array = mysqli_fetch_assoc($result);
+        $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        return $array;
+        return array_map('parseInscricao', $array);
     }
+}
+
+function parseInscricao($assoc) {
+    return new Inscricao($assoc);
 }
 ?>
