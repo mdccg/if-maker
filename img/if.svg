@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="268px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g>
+        <circle cx="32" cy="32" r="32" fill="red" />
+        <rect x="68" y="0" rx="16" ry="16" width="64" height="64" fill="green" />
+        <rect x="136" y="0" rx="16" ry="16" width="64" height="64" fill="green" />
+        
+        <rect x="0" y="68" rx="16" ry="16" width="64" height="64" fill="green" />
+        <rect x="68" y="68" rx="16" ry="16" width="64" height="64" fill="green" />
+        
+        <rect x="0" y="136" rx="16" ry="16" width="64" height="64" fill="green" />
+        <rect x="68" y="136" rx="16" ry="16" width="64" height="64" fill="green" />
+        <rect x="136" y="136" rx="16" ry="16" width="64" height="64" fill="green" />
+
+        <rect x="0" y="204" rx="16" ry="16" width="64" height="64" fill="green" />
+        <rect x="68" y="204" rx="16" ry="16" width="64" height="64" fill="green" />
+    </g>
+</svg>

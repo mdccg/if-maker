@@ -77,7 +77,6 @@ abbr {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
 }
 
@@ -95,11 +94,12 @@ header {
 }
 
 header > nav > ul {
-    display: flex;
+    display: block;
 }
 
-header > nav > ul > li {
-    width: 100%;
+header nav ul li {
+    display: inline;
+    padding: calc(100% / 16);
 }
 
 header > nav > ul > li > a {

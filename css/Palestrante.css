@@ -1,0 +1,32 @@
+.palestrante {
+    box-shadow: 4px 4px 1px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    caret-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 128vh;
+    margin: auto;
+    width: 64%;
+    
+}
+
+.palestrante:first-child {
+    padding-top: 16px;
+}
+
+span[switch],
+.palestrante p {
+    padding-left: 16px;
+}
+
+span[switch] {
+    text-decoration: underline;
+    user-select: none;
+    cursor: pointer;
+}
+
+img[alt=IFMS] {
+    filter: saturate(200%);
+    display: block;    
+    margin: auto;
+    width: 16vh;
+}

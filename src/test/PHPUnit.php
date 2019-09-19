@@ -1,8 +1,8 @@
 <?php
 require_once './../connection/ConnectionFactory.php';
-require_once './../dao/EventoDAO.php';
-require_once './../dao/InscricaoDAO.php';
-require_once './../dao/PalestranteDAO.php';
+require_once './../dao/EventoDao.php';
+require_once './../dao/InscricaoDao.php';
+require_once './../dao/PalestranteDao.php';
 require_once './../model/Evento.php';
 require_once './../model/Inscricao.php';
 require_once './../model/Palestrante.php';
@@ -22,8 +22,8 @@ function cadastraInscrito() {
     
     $inscricao = new Inscricao($inscricao);
     
-    $inscricaoDAO = new InscricaoDAO;
-    $inscricaoDAO->createInscricao($inscricao);
+    $inscricaoDao = new InscricaoDao;
+    $inscricaoDao->createInscricao($inscricao);
 }
 
 function cadastraPalestrante() {
@@ -40,13 +40,13 @@ function cadastraPalestrante() {
 
     $palestrante = new Palestrante($palestrante);
 
-    $palestranteDAO = new PalestranteDAO;
-    $palestranteDAO->createPalestrante($palestrante);
+    $palestranteDao = new PalestranteDao;
+    $palestranteDao->createPalestrante($palestrante);
 }
 
 function criaEvento() {
-    $palestranteDAO = new PalestranteDAO;
-    $palestrante = $palestranteDAO->readPalestrantes()[0]; # 1.o palestrante
+    $palestranteDao = new PalestranteDao;
+    $palestrante = $palestranteDao->readPalestrantes()[0]; # 1.o palestrante
 
     $evento = Array(
         'id' => uniqid(''),
@@ -57,26 +57,38 @@ function criaEvento() {
 
     $evento = new Evento($evento);
 
-    $eventoDAO = new EventoDAO;
-    $eventoDAO->createEvento($evento);
+    $eventoDao = new EventoDao;
+    $eventoDao->createEvento($evento);
 }
 
 function listaInscricoes() {
-    $inscricaoDAO = new InscricaoDAO;
-    $inscricoes = $inscricaoDAO->readInscricoes();
+    $inscricaoDao = new InscricaoDao;
+    $inscricoes = $inscricaoDao->readInscricoes();
     return $inscricoes;
 }
 
 function listaPalestrantes() {
-    $palestranteDAO = new PalestranteDAO;
-    $palestrantes = $palestranteDAO->readPalestrantes();
+    $palestranteDao = new PalestranteDao;
+    $palestrantes = $palestranteDao->readPalestrantes();
     return $palestrantes;
 }
 
 function listaEventos() {
-    $eventoDAO = new EventoDAO();
-    $eventos = $eventoDAO->readEventos();
+    $eventoDao = new EventoDao();
+    $eventos = $eventoDao->readEventos();
     return $eventos;
+}
+
+function listaEventosPorInscrito() {
+    $eventoDao = new EventoDao;
+    $inscricaoDao = new InscricaoDao;
+
+    $evento = listaEventos()[0]; # 1.0 evento
+    $inscricao = listaInscricoes()[1]; # 2.o inscrito
+    
+    $eventoDao->relaciona($inscricao->getId(), $evento->getId());
+
+    return $inscricaoDao->getEventosByInscricao($inscricao->getId());
 }
 
 # cadastraInscrito();

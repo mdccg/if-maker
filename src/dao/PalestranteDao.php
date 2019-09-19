@@ -1,8 +1,5 @@
 <?php
-require_once './../connection/ConnectionFactory.php';
-require_once './../model/Palestrante.php';
-
-class PalestranteDAO {
+class PalestranteDao {
     public function createPalestrante($palestrante) {
         $connection = getConnection();
 
@@ -32,12 +29,22 @@ class PalestranteDAO {
         return array_map('parsePalestrante', $array);
     }
 
-    public function updatePalestrante() {
-        # TODO
+    public function getPalestranteById($id) {
+        $connection = getConnection();
+
+        $result = $connection->query("SELECT * FROM palestrante WHERE id = '$id';");
+        $assoc = mysqli_fetch_assoc($result);
+
+        return new Palestrante($assoc);
     }
 
-    public function dropPalestrante() {
-        # TODO
+    public function getPalestranteByCpf($cpf) {
+        $connection = getConnection();
+
+        $result = $connection->query("SELECT * FROM palestrante WHERE cpf = '$cpf';");
+        $assoc = mysqli_fetch_assoc($result);
+
+        return new Palestrante($assoc);
     }
 }
 

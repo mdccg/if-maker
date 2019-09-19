@@ -10,5 +10,5 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
 ```
 
 ## _TO-DO LIST_
-- [ ] Terminar Model;
-- [ ] Terminar DAO.
+- [X] Terminar sisteminha de login; =)
+- [ ] Terminar sisteminha de cadastro de eventos.

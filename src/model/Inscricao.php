@@ -24,6 +24,12 @@ class Inscricao {
         return $assoc;
     }
 
+    public function isEmpty() {
+        $assoc = $this->toAssoc();
+        $isEmpty = implode(' ', $assoc);
+        return trim($isEmpty) == '';
+    }
+
     public function getId() {
         return $this->id;
     }

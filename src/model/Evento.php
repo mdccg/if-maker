@@ -19,6 +19,12 @@ class Evento {
         return $assoc;
     }
 
+    public function isEmpty() {
+        $assoc = $this->toAssoc();
+        $isEmpty = implode(' ', $assoc);
+        return trim($isEmpty) == '';
+    }
+
     public function getId() {
         return $this->id;
     }
@@ -43,12 +49,12 @@ class Evento {
         $this->data_evento = $data_evento;
     }
 
-    public function getPalestrante() {
-        return $this->palestrante;
+    public function getPalestrante_id() {
+        return $this->palestrante_id;
     }
 
-    public function setPalestrante($palestrante) {
-        $this->palestrante = $palestrante;
+    public function setPalestrante_id($palestrante_id) {
+        $this->palestrante_id = $palestrante_id;
     }
 }
 ?>

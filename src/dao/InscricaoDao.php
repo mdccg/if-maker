@@ -1,8 +1,5 @@
 <?php
-require_once './../connection/ConnectionFactory.php';
-require_once './../model/Inscricao.php';
-
-class InscricaoDAO {
+class InscricaoDao {
     public function createInscricao($inscricao) {
         $connection = getConnection();
 
@@ -31,6 +28,18 @@ class InscricaoDAO {
         $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         return array_map('parseInscricao', $array);
+    }
+
+    public function getEventosByInscricao($inscricao_id) {
+        $connection = getConnection();
+
+        $result = $connection->query("SELECT evento.* FROM evento"
+            . " JOIN inscricao_evento ON evento.id = inscricao_evento.evento_id"
+            . " JOIN inscricao ON inscricao.id = inscricao_evento.inscricao_id"
+            . " WHERE inscricao.id = '$inscricao_id';");
+        $array = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        return array_map('parseEvento', $array);
     }
 }
 
