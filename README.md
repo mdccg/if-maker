@@ -1,5 +1,5 @@
 # &#9825; IF Maker &#9825;
-Projeto para a disciplina Desenvolvimento Web 2 e em breve disponível [aqui](#).
+Projeto para a unidade curricular Desenvolvimento Web 2 e em breve disponível [aqui](#).
 
 ``$ php --version``
 ```

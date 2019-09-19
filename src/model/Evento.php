@@ -3,7 +3,7 @@ class Evento {
     private $id;
     private $titulo;
     private $data_evento;
-    private $palestrante;
+    private $palestrante_id;
 
     function __construct($assoc) {
         foreach($assoc as $chave => $valor) {

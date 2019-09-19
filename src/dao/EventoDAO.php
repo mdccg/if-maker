@@ -14,7 +14,7 @@ class EventoDAO {
             $assoc['id'],
             $assoc['titulo'],
             $assoc['data_evento'],
-            $assoc['palestrante']);
+            $assoc['palestrante_id']);
         
         return mysqli_stmt_execute($statement);
     }
