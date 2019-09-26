@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./../css/reset.css">
     <link rel="stylesheet" type="text/css" href="./../css/index.css">
+    <link rel="stylesheet" type="text/css" href="./../css/Evento.css">
     <title>Área de eventos &#x2015; IF Maker</title>
 </head>
 <body>
@@ -23,6 +24,7 @@
 
     <div class="bkgd1">
         <section>
+            <div class="eventos"></div>
         </section>
     </div>
 

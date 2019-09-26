@@ -43,7 +43,7 @@ html {
 body {
     font-family: var(--fonte);
     color: var(--cinza);
-    font-size: 2.56vh;
+    font-size: 16px;
 }
 
 .container {
@@ -226,11 +226,22 @@ form > select {
     width: 83%;
 }
 
-form > input[type='submit'] {
+input[type='submit'], .btn {
+    box-shadow: -1px 1px 4px black;
     background-color: var(--cinza);
     width: fit-content;
     color: white;
+    border: none;
 }
+
+input[type=submit]:hover, .btn:hover {
+    background-color: #434242;
+    transition-duration: 0.4s;
+}
+
+/* input[type=submit]:active {
+    TODO
+} */
 
 footer {
     box-shadow: 0 -4px 64px var(--cinza);
