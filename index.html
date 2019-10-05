@@ -182,12 +182,12 @@
 
                     <span>Tel: (0 xx 67) 3240-1600</span>
 
-                    <span uc>Horário de funcionamento:</span>
+                    <span uc>Horário de funcionamento:<br></span>
                     <span>Seg - Sex: 8:00 - 20:00</span>
                 </div>
 
                 <!-- CHAMAR CONTROLLER AQUI -->
-                <form action="#" method="POST">
+                <form action="./src/controller/InscricaoController.php" method="POST">
                     <label for="nome">Digite o nome completo: </label>
                     <input type="text" name="nome" placeholder="Nome completo">
 
@@ -197,6 +197,11 @@
                     <label for="evento_id">Evento:</label>
                     
                     <!-- SELECT AQUI -->
+                    <select name="evento_id">
+                        <option value="1">Jonas AAAAAAAAAAAAAAAAAAAALSKDLASKDLASDKALSDKL</option>
+                        <option value="1">Querido</option>
+                        <option value="1">Terrível</option>
+                    </select>
 
                     <label for="cpf">Digite o n.º de CPF:</label>
                     <input type="text" name="cpf" placeholder="n.º de CPF">
@@ -204,8 +209,8 @@
                     <label for="rg">Digite o n.º de RG:</label>
                     <input type="text" name="rg" placeholder="n.º de RG">
 
-                    <label for="oe">Órgão Emissor do RG:</label>
-                    <input type="text" name="oe" placeholder="Órgão emissor do RG">
+                    <label for="orgao_emissor">Órgão Emissor do RG:</label>
+                    <input type="text" name="orgao_emissor" placeholder="Órgão emissor do RG">
 
                     <label for="naturalidade">Naturalidade:</label>
                     <input type="text" name="naturalidade" placeholder="Naturalidade">
@@ -221,7 +226,13 @@
         </div>
     </div>
 
+    <style>
+        
+    </style>
+    
     <footer>&copy; IF Maker 2019. Criado orgulhosamente <b>sem Wix.com</b></footer>
+
+    <script type="text/javascript" src="./js/index.js"></script>
 </body>
 
 </html>

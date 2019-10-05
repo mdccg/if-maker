@@ -1,0 +1,39 @@
+.eclipse, .eclipse * {
+    position: fixed;
+    z-index: 2;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.bkgd_000 {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+    background-color: var(--color);
+    box-shadow: 0 1px 64px black;
+
+    height: 32%;
+    width: 32%;
+    
+    margin: auto;
+}
+
+.modal > span {
+    color: white;
+    
+    font-size: 4vh;
+    top: 39%;
+    left: 37%;
+}
+
+.modal img {
+    width: 4%;
+    left: 48%;
+    top: 48%;
+
+    color: white; /* <3 */
+}

@@ -97,6 +97,7 @@ function listaEventosPorInscrito() {
 # cadastraPalestrante();
 # criaEvento();
 ?>
+<h1>Inscritos</h1>
 <pre><?php print_r(listaInscricoes()) ?></pre>
-<pre><?php print_r(listaPalestrantes()) ?></pre>
-<pre><?php print_r(listaEventos()) ?></pre>
+<!-- <pre><?php print_r(listaPalestrantes()) ?></pre>
+<pre><?php print_r(listaEventos()) ?></pre> -->

@@ -2,6 +2,7 @@
 @import './css/fontes.css';
 @import './css/header.css';
 @import './css/footer.css';
+@import './css/modal.css';
 
 :root { --color: #2F2D2E; }
 
@@ -181,12 +182,18 @@ div#inscricoes img#logo {
     width: 50%;
 }
 
-/* TODO ajustar espaço entre a div.inscricoes e o footer */
+div#inscricoes {
+    min-height: 180vh;
+}
 
 div#inscricoes > div.inscricoes {
-    min-height: 100vh;
     margin: auto;
     width: 50%;
+}
+
+div#inscricoes > div.inscricoes > div.cols {
+    display: block;
+    overflow: auto;
 }
 
 div#inscricoes h3 {
@@ -196,6 +203,8 @@ div#inscricoes h3 {
 }
 
 div#inscricoes div[role=contato] { padding-left: 2%; }
+
+div#inscricoes div[role=contato] * { display: block; }
 
 div#inscricoes div[role=contato],
 div#inscricoes form {
@@ -209,7 +218,8 @@ div#inscricoes form { padding-right: 2%; }
 
 div#inscricoes > div.inscricoes div.cols > form > * { display: block; }
 
-div#inscricoes > div.inscricoes div.cols > form > input {
+div#inscricoes > div.inscricoes div.cols > form > input,
+div#inscricoes > div.inscricoes div.cols > form > select {
     padding-right: 20px;
     padding-left: 20px;
 
@@ -222,6 +232,10 @@ div#inscricoes > div.inscricoes div.cols > form > input {
     font-size: 64%;
 }
 
+div#inscricoes select {
+    background-color: white;
+}
+
 div#inscricoes ::placeholder { opacity: 0.5; }
 
 div#inscricoes input[type=submit] {
@@ -230,6 +244,7 @@ div#inscricoes input[type=submit] {
     background-color: var(--color);
     color: white;
 
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
