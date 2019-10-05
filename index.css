@@ -1,0 +1,239 @@
+@import './css/reset.css';
+@import './css/fontes.css';
+@import './css/header.css';
+@import './css/footer.css';
+
+:root { --color: #2F2D2E; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'News Cycle', 'Arial', sans-serif;
+    color: var(--color);
+    font-size: 160%;
+}
+
+img { width: 100%; }
+
+a { color: inherit; }
+
+b { font-weight: bold; }
+
+abbr { text-decoration: none; }
+
+.container {
+    margin: auto;
+    width: 9e+1%;
+}
+
+.bkgd1, .bkgd2, .bkgd3, .bkgd4 {
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 120vh;
+}
+
+.bkgd_fff { background-color: #fff !important; }
+
+.bkgd1 { background-image: url(./img/bkgd1.jpg); }
+
+.bkgd2 {
+    background-image: url(./img/bkgd2.jpg);
+    color: white;
+}
+
+.bkgd3 { background-image: url(./img/bkgd3.jpg); }
+
+.bkgd4 {
+    background-image: url(./img/bkgd4.jpg);
+    min-height: 80vh;
+}
+
+*[fff] { color: white; }
+
+*[hr] {
+    width: 32px;
+    height: 2px;
+    
+    background-color: var(--color);
+    
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* home */
+
+div#home h1, div#home h2 {
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+}
+
+div#home h1 {
+    transform: translateY(inherit, -40%);
+    top: 40%;
+
+    font-weight: bold;
+    line-height: 1.15;
+    font-size: 160%;
+}
+
+div#home h2 {
+    transform: translateY(inherit, -80%);
+    top: 80%;
+
+    font-size: 80%;
+}
+
+/* equipamentos */
+
+div#equipamentos h3 {
+    padding-top: 80px;
+    font-size: 120%;
+}
+
+div#equipamentos ul {
+    margin-top: 80px;
+
+    justify-content: space-around;
+    display: flex;
+}
+
+div#equipamentos ul li { text-align: center; }
+
+div#equipamentos > ul > li { width: calc(100% / 4); }
+
+div#equipamentos ul li figure img {
+    filter: invert(100%); /* GAMBIARRA LVL MAX */
+    width: 75%;
+}
+
+div#equipamentos ul li figure figcaption {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 80%;
+
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+/* definicao */
+
+div#definicao h3 {
+    padding-top: 80px;
+    font-size: 160%;
+}
+
+div#definicao div.container {
+    text-align: center;
+    line-height: 1.15;
+
+    padding-bottom: 80px;
+}
+
+div#definicao figure {
+    width: calc(100% / 3);
+    float: left;
+}
+
+/* perfil */
+
+div#perfil2 h3 {
+    padding-top: 80px;
+    font-size: 160%;
+}
+
+div#perfil2 {
+    transform: translate(-50%, 40%);
+    position: relative;
+    left: 50%;
+    top: 50%;
+
+    width: 60%;
+    text-align: center;
+}
+
+div#perfil2 p {
+    padding: 20px 120px 20px;
+    font-size: 80%;
+}
+
+div#perfil2 p:last-child {
+    padding-bottom: 80px;
+}
+
+/* inscricoes */
+
+div#inscricoes img#logo {
+    padding-top: 80px;
+
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+/* TODO ajustar espaço entre a div.inscricoes e o footer */
+
+div#inscricoes > div.inscricoes {
+    min-height: 100vh;
+    margin: auto;
+    width: 50%;
+}
+
+div#inscricoes h3 {
+    padding-top: 20px;
+
+    font-size: 160%;
+}
+
+div#inscricoes div[role=contato] { padding-left: 2%; }
+
+div#inscricoes div[role=contato],
+div#inscricoes form {
+    line-height: 1.5;
+
+    float: left;
+    width: 48%;
+}
+
+div#inscricoes form { padding-right: 2%; }
+
+div#inscricoes > div.inscricoes div.cols > form > * { display: block; }
+
+div#inscricoes > div.inscricoes div.cols > form > input {
+    padding-right: 20px;
+    padding-left: 20px;
+
+    border: 1px solid grey;
+    border-radius: 4px;
+    height: 40px;
+    width: 75%;
+
+    font-family: 'News Cycle', 'Arial', sans-serif;
+    font-size: 64%;
+}
+
+div#inscricoes ::placeholder { opacity: 0.5; }
+
+div#inscricoes input[type=submit] {
+    width: fit-content !important;
+
+    background-color: var(--color);
+    color: white;
+
+    margin-top: 20px;
+}
+
+div#inscricoes input[type=submit]:hover {
+    transition-duration: 0.4s;
+    filter: invert(100%);
+}

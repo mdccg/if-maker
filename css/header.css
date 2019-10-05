@@ -1,0 +1,31 @@
+header {
+    box-shadow: 0 4px 64px var(--color);
+    background-color: var(--color);
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+}
+
+header nav ul {
+    justify-content: space-around;
+    display: flex;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    font-size: 16px;
+    color: white;
+    top: 64%;
+}
+
+header nav ul li a:hover {
+    text-shadow: 0px 2px 10px white;
+    transition-duration: 0.4s;
+}

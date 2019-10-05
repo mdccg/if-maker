@@ -1,0 +1,12 @@
+footer {
+    box-shadow: 0 -4px 64px var(--color);
+    background-color: var(--color);
+    
+    text-align: center;
+    color: white;
+
+    padding-top: 20px;
+    min-height: 80px;
+    width: 100%;
+    bottom: 0;
+}

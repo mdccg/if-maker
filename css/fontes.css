@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'News Cycle';
+    src: url('./../fonts/NewsCycle-Regular.ttf');
+}
+
+@font-face {
+    font-weight: bold;
+    font-family: 'News Cycle';
+    src: url('./../fonts/NewsCycle-Bold.ttf');
+}

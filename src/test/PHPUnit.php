@@ -1,8 +1,10 @@
 <?php
 require_once './../connection/ConnectionFactory.php';
+
 require_once './../dao/EventoDao.php';
 require_once './../dao/InscricaoDao.php';
 require_once './../dao/PalestranteDao.php';
+
 require_once './../model/Evento.php';
 require_once './../model/Inscricao.php';
 require_once './../model/Palestrante.php';
