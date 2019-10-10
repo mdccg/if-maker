@@ -135,8 +135,10 @@
             </li>
         </ul>
 
-        <small>Fotos cedidas pelo prof. Lucas Negri e disponíveis <a
-                href="https://sites.google.com/a/ifms.edu.br/ln/projetos/Fab-Lab" target="_blank">aqui</a>.</small>
+        <small role="copyright">Fotos cedidas pelo prof.
+            <a href="http://lattes.cnpq.br/0726448318510315" target="_blank">Lucas Negri</a> e disponíveis
+            <a href="https://sites.google.com/a/ifms.edu.br/ln/projetos/Fab-Lab" target="_blank">aqui</a>.
+        </small>
     </div>
 
     <div class="bkgd3" id="perfil">
@@ -186,37 +188,56 @@
                     <span>Seg - Sex: 8:00 - 20:00</span>
                 </div>
 
-                <!-- CHAMAR CONTROLLER AQUI -->
                 <form action="./src/controller/InscricaoController.php" method="POST">
-                    <label for="nome">Digite o nome completo: </label>
-                    <input type="text" name="nome" placeholder="Nome completo">
+                    <label for="nome">Digite o nome completo: <span require title="Obrigatório">*</span></label>
+                    <input type="text" name="nome" placeholder="Nome completo" required>
 
-                    <label for="email">Endereço de e-mail: </label>
-                    <input type="email" name="email" placeholder="Endereço de e-mail">
+                    <label for="email">Endereço de e-mail: <span require title="Obrigatório">*</span></label>
+                    <input type="email" name="email" placeholder="Endereço de e-mail" required>
 
-                    <label for="evento_id">Evento:</label>
+                    <label for="evento_id">Evento: <span require title="Obrigatório">*</span></label>
                     
-                    <!-- SELECT AQUI -->
-                    <select name="evento_id">
-                        <option value="1">Jonas AAAAAAAAAAAAAAAAAAAALSKDLASKDLASDKALSDKL</option>
-                        <option value="1">Querido</option>
-                        <option value="1">Terrível</option>
+                    <select name="evento_id" required>
+                        <option value="">Selecione um evento</option>
+                        <?php
+                        require_once './src/connection/ConnectionFactory.php';
+
+                        require_once './src/dao/EventoDao.php';
+                        require_once './src/dao/PalestranteDao.php';
+
+                        require_once './src/model/Evento.php';
+                        require_once './src/model/Palestrante.php';
+                        
+                        $eventoDao = new EventoDao;
+                        $palestranteDao = new PalestranteDao;
+
+                        $eventos = $eventoDao->readEventos();
+
+                        foreach($eventos as $evento) {
+                            $palestrante = $palestranteDao->getPalestranteById(
+                                $evento->getPalestrante_id()
+                            );
+                        ?>
+
+                        <option value="<?= $evento->getId() ?>"><?= $evento->getTitulo() . ' - ' . $palestrante->getNome() ?></option>
+                        <?php } ?>
+                    
                     </select>
 
-                    <label for="cpf">Digite o n.º de CPF:</label>
-                    <input type="text" name="cpf" placeholder="n.º de CPF">
+                    <label for="cpf">Digite o n.º de CPF: (apenas números) <span require title="Obrigatório">*</span></label>
+                    <input type="text" name="cpf" placeholder="n.º de CPF" required pattern="[0-9]{11}" minlength="11" maxlength="11">
 
-                    <label for="rg">Digite o n.º de RG:</label>
-                    <input type="text" name="rg" placeholder="n.º de RG">
+                    <label for="rg">Digite o n.º de RG: (apenas números) <span require title="Obrigatório">*</span></label>
+                    <input type="text" name="rg" placeholder="n.º de RG" required pattern="[0-9]{7}" minlength="7" maxlength="7">
 
-                    <label for="orgao_emissor">Órgão Emissor do RG:</label>
-                    <input type="text" name="orgao_emissor" placeholder="Órgão emissor do RG">
+                    <label for="orgao_emissor">Órgão Emissor do RG: <span require title="Obrigatório">*</span></label>
+                    <input type="text" name="orgao_emissor" placeholder="Órgão emissor do RG" required>
 
-                    <label for="naturalidade">Naturalidade:</label>
-                    <input type="text" name="naturalidade" placeholder="Naturalidade">
+                    <label for="naturalidade">Naturalidade: <span require title="Obrigatório">*</span></label>
+                    <input type="text" name="naturalidade" placeholder="Naturalidade" required>
 
-                    <label for="data_nascimento">Digite o dia, mês e ano da data em que nasceu:</label>
-                    <input type="date" name="data_nascimento">
+                    <label for="data_nascimento">Digite o dia, mês e ano da data em que nasceu: <span require title="Obrigatório">*</span></label>
+                    <input type="date" name="data_nascimento" required>
 
                     <input type="submit" value="Enviar">
                 </form>
@@ -225,10 +246,6 @@
             </div>
         </div>
     </div>
-
-    <style>
-        
-    </style>
     
     <footer>&copy; IF Maker 2019. Criado orgulhosamente <b>sem Wix.com</b></footer>
 

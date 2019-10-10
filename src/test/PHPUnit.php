@@ -12,7 +12,7 @@ require_once './../model/Palestrante.php';
 function cadastraInscrito() {
     $inscricao = Array(
         'id' => uniqid(''),
-        'nome' => 'Fábio Luiz Silva',
+        'nome' => 'Fábio Luiz Faria da Silva',
         'data_inscricao' => date('Y-m-d h:i:s'),
         'email' => 'fabio.silva@ifms.edu.br',
         'cpf' => '00000000000',
@@ -48,7 +48,7 @@ function cadastraPalestrante() {
 
 function criaEvento() {
     $palestranteDao = new PalestranteDao;
-    $palestrante = $palestranteDao->readPalestrantes()[0]; # 1.o palestrante
+    $palestrante = $palestranteDao->readPalestrantes()[2]; # 1.o palestrante
 
     $evento = Array(
         'id' => uniqid(''),
@@ -97,7 +97,12 @@ function listaEventosPorInscrito() {
 # cadastraPalestrante();
 # criaEvento();
 ?>
-<h1>Inscritos</h1>
+
+<h2>Inscricao</h2>
 <pre><?php print_r(listaInscricoes()) ?></pre>
-<!-- <pre><?php print_r(listaPalestrantes()) ?></pre>
-<pre><?php print_r(listaEventos()) ?></pre> -->
+
+<h2>Palestrante</h2>
+<pre><?php print_r(listaPalestrantes()) ?></pre>
+
+<h2>Evento</h2>
+<pre><?php print_r(listaEventos()) ?></pre>

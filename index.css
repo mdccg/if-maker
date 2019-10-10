@@ -146,6 +146,12 @@ div#definicao figure {
     float: left;
 }
 
+div#definicao small {
+    margin-top: 20px;
+    text-align: right;
+    display: block;
+}
+
 /* perfil */
 
 div#perfil2 h3 {
@@ -252,3 +258,5 @@ div#inscricoes input[type=submit]:hover {
     transition-duration: 0.4s;
     filter: invert(100%);
 }
+
+div#inscricoes span[require] { color: red; }

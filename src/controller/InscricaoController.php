@@ -1,6 +1,9 @@
 <?php
 require_once './../connection/ConnectionFactory.php';
+
+require_once './../dao/EventoDao.php';
 require_once './../dao/InscricaoDao.php';
+
 require_once './../model/Inscricao.php';
 
 function _isset() {
@@ -23,18 +26,27 @@ function cadastraInscrito() {
         $inscricao{$chave} = $valor;
     }
 
-    unset($inscricao['evento_id']); # TODO inscricao_evento
+    $evento_id = $inscricao['evento_id'];
+    unset($inscricao['evento_id']);
 
     $inscricao = new Inscricao($inscricao);
 
+    $eventoDao = new EventoDao;
     $inscricaoDao = new InscricaoDao;
-    $inscricaoDao->createInscricao($inscricao);
+
+    $eventoDao->relaciona(
+        $inscricao->getId(),
+        $evento_id
+    );
+
+    return $inscricaoDao->createInscricao($inscricao);
 }
 
-if(!_isset())
+if(!_isset()) {
     header('Location: ./../../?cadastrado=false');
-else {
-    cadastraInscrito();
-    header('Location: ./../../?cadastrado=true');
+    exit;
 }
+
+cadastraInscrito();
+header('Location: ./../../?cadastrado=true');
 ?>
