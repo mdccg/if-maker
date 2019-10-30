@@ -48,7 +48,7 @@ function cadastraPalestrante() {
 
 function criaEvento() {
     $palestranteDao = new PalestranteDao;
-    $palestrante = $palestranteDao->readPalestrantes()[2]; # 1.o palestrante
+    $palestrante = $palestranteDao->readPalestrantes()[0]; # 1.o palestrante
 
     $evento = Array(
         'id' => uniqid(''),
@@ -86,7 +86,7 @@ function listaEventosPorInscrito() {
     $inscricaoDao = new InscricaoDao;
 
     $evento = listaEventos()[0]; # 1.0 evento
-    $inscricao = listaInscricoes()[1]; # 2.o inscrito
+    $inscricao = listaInscricoes()[0]; # 1.o inscrito
     
     $eventoDao->relaciona($inscricao->getId(), $evento->getId());
 
