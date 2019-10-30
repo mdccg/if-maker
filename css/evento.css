@@ -1,0 +1,10 @@
+div.eventos {
+    background-color: white;
+    min-height: 100vh;
+    text-align: center;
+    z-index: -1;
+}
+
+div.eventos > form {
+    padding-top: 80px;
+}
