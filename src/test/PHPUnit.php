@@ -9,6 +9,8 @@ require_once './../model/Evento.php';
 require_once './../model/Inscricao.php';
 require_once './../model/Palestrante.php';
 
+require_once './../utils/PHPUtils.php';
+
 function cadastraInscrito() {
     $inscricao = Array(
         'id' => uniqid(''),
@@ -61,24 +63,6 @@ function criaEvento() {
 
     $eventoDao = new EventoDao;
     $eventoDao->createEvento($evento);
-}
-
-function listaInscricoes() {
-    $inscricaoDao = new InscricaoDao;
-    $inscricoes = $inscricaoDao->readInscricoes();
-    return $inscricoes;
-}
-
-function listaPalestrantes() {
-    $palestranteDao = new PalestranteDao;
-    $palestrantes = $palestranteDao->readPalestrantes();
-    return $palestrantes;
-}
-
-function listaEventos() {
-    $eventoDao = new EventoDao();
-    $eventos = $eventoDao->readEventos();
-    return $eventos;
 }
 
 function listaEventosPorInscrito() {

@@ -28,27 +28,31 @@
 
     <div class="bkgd3">
         <div class="container palestrante">
+            <h2>Página do palestrante</h2>
+
+            <div hr></div>
+
             <form action="./../src/controller/PalestranteController.php" method="POST">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome">
+                <label for="nome">Nome: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="nome" required>
 
-                <label for="email">E-mail:</label>
-                <input type="email" name="email">
+                <label for="email">E-mail: <span require title="Obrigatório">*</span></label>
+                <input type="email" name="email" required>
 
-                <label for="cpf">n.º de CPF:</label>
-                <input type="text" name="cpf">
+                <label for="cpf">n.º de CPF: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="cpf" required>
 
-                <label for="rg">n.º de RG:</label>
-                <input type="text" name="rg">
+                <label for="rg">n.º de RG: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="rg" required>
 
-                <label for="orgao_emissor">Órgão emissor:</label>
-                <input type="text" name="orgao_emissor">
+                <label for="orgao_emissor">Órgão emissor: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="orgao_emissor" required>
 
-                <label for="naturalidade">Naturalidade:</label>
-                <input type="text" name="naturalidade">
+                <label for="naturalidade">Naturalidade: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="naturalidade" required>
 
-                <label for="data_nascimento">Data de nascimento:</label>
-                <input type="date" name="data_nascimento">
+                <label for="data_nascimento">Data de nascimento: <span require title="Obrigatório">*</span></label>
+                <input type="date" name="data_nascimento" required>
 
                 <input type="submit" value="Enviar">
             </form>

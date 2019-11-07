@@ -28,15 +28,34 @@
 
     <div class="bkgd3">
         <div class="container eventos">
+            <h2>Cadastro de eventos</h2>
+
+            <div hr></div>
+
             <form action="./../src/controller/EventoController.php" method="POST">
-                <label for="palestrante_id">Palestrante:</label>
-                <input type="text" value="Mário Sá" disabled>
+                <label for="palestrante_id">Palestrante: <span require title="Obrigatório">*</span></label>
+                <select name="palestrante_id" required>
+                    <option value>Selecione o seu palestrante</option>
+                    <?php
+                    require_once './../src/connection/ConnectionFactory.php';
+                    require_once './../src/dao/PalestranteDao.php';
+                    require_once './../src/model/Palestrante.php';
+                    require_once './../src/utils/PHPUtils.php';
 
-                <label for="titulo">Título do evento:</label>
-                <input type="text" name="titulo">
+                    $palestrantes = listaPalestrantes();
+                    foreach($palestrantes as $palestrante) {
+                    ?>
 
-                <label for="data_evento">Data do evento:</label>
-                <input type="datetime-local" name="data_evento">
+                    <option value="<?= $palestrante->getId() ?>"><?= $palestrante->getNome() ?></option>
+
+                    <?php } ?>
+                </select>
+
+                <label for="titulo">Título do evento: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="titulo" required>
+
+                <label for="data_evento">Data do evento: <span require title="Obrigatório">*</span></label>
+                <input type="datetime-local" name="data_evento" required>
 
                 <input type="submit" value="Enviar">
             </form>

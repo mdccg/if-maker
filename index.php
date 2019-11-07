@@ -209,16 +209,15 @@
 
                         require_once './src/model/Evento.php';
                         require_once './src/model/Palestrante.php';
-                        
-                        $eventoDao = new EventoDao;
+
+                        require_once './src/utils/PHPUtils.php';
+
                         $palestranteDao = new PalestranteDao;
 
-                        $eventos = $eventoDao->readEventos();
+                        $eventos = listaEventos();
 
                         foreach($eventos as $evento) {
-                            $palestrante = $palestranteDao->getPalestranteById(
-                                $evento->getPalestrante_id()
-                            );
+                            $palestrante = $palestranteDao->getPalestranteById($evento->getPalestrante_id());
                         ?>
 
                         <option value="<?= $evento->getId() ?>"><?= $evento->getTitulo() . ' - ' . $palestrante->getNome() ?></option>

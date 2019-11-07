@@ -9,7 +9,7 @@ $evento = Array(
     'id' => uniqid(''),
     'titulo' => $_POST['titulo'],
     'data_evento' => $data_evento,
-    'palestrante_id' => '5d9e9557be2f4'
+    'palestrante_id' => $_POST['palestrante_id']
 );
 
 $evento = new Evento($evento);
