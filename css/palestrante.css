@@ -1,0 +1,17 @@
+div.palestrante {
+    background-color: white;
+    min-height: 100vh;
+}
+
+div.palestrante > form {
+    padding-top: 80px;
+    padding-left: 80px;
+}
+
+div.palestrante > form > label {
+    margin-top: 20px;
+}
+
+div.palestrante > form > * {
+    display: block;
+}

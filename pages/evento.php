@@ -20,6 +20,8 @@
                 <li><a href="./../#perfil">Quem somos</a></li>
                 <li><a href="./../#equipamentos">Equipamentos</a></li>
                 <li><a href="./../#inscricoes">Inscrições IF Maker</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="./palestrante.php">Palestrante</a></li>
             </ul>
         </nav>
     </header>

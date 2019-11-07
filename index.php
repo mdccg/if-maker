@@ -19,6 +19,8 @@
                 <li><a href="#perfil">Quem somos</a></li>
                 <li><a href="#equipamentos">Equipamentos</a></li>
                 <li><a href="#inscricoes">Inscrições IF Maker</a></li>
+                <li><a href="./pages/evento.php">Eventos</a></li>
+                <li><a href="./pages/palestrante.php">Palestrante</a></li>
             </ul>
         </nav>
     </header>
@@ -241,8 +243,6 @@
 
                     <input type="submit" value="Enviar">
                 </form>
-
-                <!-- <a href="./pages/Palestrante.php">Sou um palestrante e quero me inscrever!</a> -->
             </div>
         </div>
     </div>

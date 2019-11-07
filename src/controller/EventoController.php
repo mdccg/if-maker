@@ -15,5 +15,5 @@ $evento = Array(
 $evento = new Evento($evento);
 $eventoDao = new EventoDao;
 $eventoDao->createEvento($evento);
-header('Location: ./../../?cadastrado=true');
+header('Location: ./../../#inscricoes');
 ?>
