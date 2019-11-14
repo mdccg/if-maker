@@ -12,6 +12,27 @@
 </head>
 
 <body>
+    <?php
+    require_once './../src/connection/ConnectionFactory.php';
+
+    require_once './../src/dao/EventoDao.php';
+    require_once './../src/dao/InscricaoDao.php';
+    require_once './../src/dao/PalestranteDao.php';
+
+    require_once './../src/model/Evento.php';
+    require_once './../src/model/Inscricao.php';
+    require_once './../src/model/Palestrante.php';
+    
+    $inscricaoDao = new InscricaoDao;
+    $palestranteDao = new PalestranteDao;
+
+    $inscricao = new Inscricao(Array());
+
+    $cpf = isset($_GET['cpf']) ? $_GET['cpf'] : NULL;
+
+    if($cpf != NULL)
+        $inscricao = $inscricaoDao->getInscricaoByCpf($cpf);
+    ?>
     <header>
         <nav class="container">
             <ul>
@@ -33,11 +54,64 @@
 
             <div hr></div>
 
-            <form action="#" method="GET">
+            <form action="#" method="GET" id="busca">
+                <br />
+                
+                <h2>Pequise pelo n.º de CPF: (apenas números)</h2>
+
+                <div hr></div>
+
                 <input type="text" name="cpf" placeholder="n.º de CPF do(a) inscrito(a)">
             </form>
-            
-            <!-- TODO -->
+
+            <?php if(!$inscricao->isEmpty()) { ?>
+
+            <form action="#alcoolico" method="POST">
+                <label for="nome">Digite o nome completo: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="nome" placeholder="Nome completo" required value="<?= $inscricao->getNome() ?>">
+
+                <label for="email">Endereço de e-mail: <span require title="Obrigatório">*</span></label>
+                <input type="email" name="email" placeholder="Endereço de e-mail" required value="<?= $inscricao->getEmail() ?>">
+
+                <label for="evento_id">Evento: <span require title="Obrigatório">*</span></label>
+                <select name="evento_id" required>
+                    <option value="">Selecione um evento</option>
+
+                    <?php
+                    $eventos = $inscricaoDao->getEventosByInscricao($inscricao->getId());
+                    print_r($eventos);
+
+                    foreach($eventos as $evento) {
+                        $palestrante = $palestranteDao->getPalestranteById($evento->getPalestrante_id());
+                    ?>
+
+                    <option value="<?= $evento->getId() ?>"><?= $evento->getTitulo() . ' - ' . $palestrante->getNome() ?></option>
+                    
+                    <?php } ?>
+
+                </select>
+
+                <label for="cpf">Digite o n.º de CPF: (apenas números) <span require title="Obrigatório">*</span></label>
+                <input type="text" name="cpf" placeholder="n.º de CPF" required pattern="[0-9]{11}" minlength="11" maxlength="11" value="<?= $inscricao->getCpf() ?>">
+
+                <label for="rg">Digite o n.º de RG: (apenas números) <span require title="Obrigatório">*</span></label>
+                <input type="text" name="rg" placeholder="n.º de RG" required pattern="[0-9]{7}" minlength="7" maxlength="7" value="<?= $inscricao->getRg() ?>">
+
+                <label for="orgao_emissor">Órgão Emissor do RG: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="orgao_emissor" placeholder="Órgão emissor do RG" required value="<?= $inscricao->getOrgao_emissor() ?>">
+
+                <label for="naturalidade">Naturalidade: <span require title="Obrigatório">*</span></label>
+                <input type="text" name="naturalidade" placeholder="Naturalidade" required value="<?= $inscricao->getNaturalidade() ?>">
+
+                <label for="data_nascimento">Digite o dia, mês e ano da data em que nasceu: <span require title="Obrigatório">*</span></label>
+                <input type="date" name="data_nascimento" required value="<?= $inscricao->getData_nascimento() ?>">
+
+                <input type="submit" value="Salvar">
+            </form>
+
+            <?php } ?>
+
+            <br />
         </div>
     </div>
 

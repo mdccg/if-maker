@@ -41,6 +41,15 @@ class InscricaoDao {
 
         return array_map('parseEvento', $array);
     }
+
+    public function getInscricaoByCpf($cpf) {
+        $connection = getConnection();
+
+        $result = $connection->query("SELECT * FROM inscricao WHERE cpf = '$cpf';");
+        $array = mysqli_fetch_assoc($result);
+
+        return new Inscricao($array);
+    }
 }
 
 function parseInscricao($assoc) {

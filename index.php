@@ -21,6 +21,7 @@
                 <li><a href="#inscricoes">Inscrições IF Maker</a></li>
                 <li><a href="./pages/evento.php">Eventos</a></li>
                 <li><a href="./pages/palestrante.php">Palestrante</a></li>
+                <li><a href="./pages/inscricao.php">Inscrições</a></li>
             </ul>
         </nav>
     </header>

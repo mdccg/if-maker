@@ -10,4 +10,43 @@ form > select {
 
     font-family: 'News Cycle', 'Arial', sans-serif;
     font-size: 64%;
+    
+}
+
+form > * {
+    clear: both;
+    display: block;
+}
+
+form > label {
+    margin-bottom: 10px;
+}
+
+form > input, form > select {
+    margin-bottom: 20px;
+}
+
+input[type=submit] {
+    width: fit-content !important;
+
+    background-color: var(--color);
+    color: white;
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover {
+    transition-duration: 0.4s;
+    filter: invert(100%);
+}
+
+span[require] { color: red; }
+
+#busca {
+    margin-bottom: 80px;
+}
+
+#busca > input {
+    margin: auto;
 }

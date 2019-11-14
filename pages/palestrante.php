@@ -22,7 +22,7 @@
                 <li><a href="./../#inscricoes">Inscrições IF Maker</a></li>
                 <li><a href="./evento.php">Eventos</a></li>
                 <li><a href="#">Palestrante</a></li>
-                <li><a href="./inscricao.php"></a></li>
+                <li><a href="./inscricao.php">Inscrições</a></li>
             </ul>
         </nav>
     </header>
@@ -57,6 +57,8 @@
 
                 <input type="submit" value="Enviar">
             </form>
+
+            <br />
         </div>
     </div>
 
