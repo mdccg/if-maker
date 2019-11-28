@@ -50,6 +50,15 @@ class InscricaoDao {
 
         return new Inscricao($array);
     }
+
+    public function updateInscricao($inscricao) {
+        $connection = getConnection();
+        
+        $assoc = $inscricao->toAssoc();
+        $sql = "UPDATE inscricao SET nome = '" . $assoc['nome'] . "', data_inscricao = '" . $assoc['data_inscricao'] . "', email = '" . $assoc['email'] . "', cpf = '" . $assoc['cpf'] . "', rg = '" . $assoc['rg'] . "', orgao_emissor = '" . $assoc['orgao_emissor'] . "', naturalidade = '" . $assoc['naturalidade'] . "', data_nascimento = '" . $assoc['data_nascimento'] . "' WHERE id = '". $assoc['id'] . "';";
+
+        return ($connection->query($sql) == true) ? $connection->query($sql) : $connection->error;
+    }
 }
 
 function parseInscricao($assoc) {

@@ -66,20 +66,22 @@
 
             <?php if(!$inscricao->isEmpty()) { ?>
 
-            <form action="#alcoolico" method="POST">
+            <form action="./../src/controller/InscricaoController.php?update=true" method="POST">
+                <input type="hidden" name="id" value="<?= $inscricao->getId() ?>">
+                <input type="hidden" name="data_inscricao" value="<?= $inscricao->getData_inscricao() ?>">
+
                 <label for="nome">Digite o nome completo: <span require title="Obrigatório">*</span></label>
                 <input type="text" name="nome" placeholder="Nome completo" required value="<?= $inscricao->getNome() ?>">
 
                 <label for="email">Endereço de e-mail: <span require title="Obrigatório">*</span></label>
                 <input type="email" name="email" placeholder="Endereço de e-mail" required value="<?= $inscricao->getEmail() ?>">
 
-                <label for="evento_id">Evento: <span require title="Obrigatório">*</span></label>
+                <!-- <label for="evento_id">Evento: <span require title="Obrigatório">*</span></label>
                 <select name="evento_id" required>
                     <option value="">Selecione um evento</option>
 
                     <?php
                     $eventos = $inscricaoDao->getEventosByInscricao($inscricao->getId());
-                    print_r($eventos);
 
                     foreach($eventos as $evento) {
                         $palestrante = $palestranteDao->getPalestranteById($evento->getPalestrante_id());
@@ -89,7 +91,7 @@
                     
                     <?php } ?>
 
-                </select>
+                </select> -->
 
                 <label for="cpf">Digite o n.º de CPF: (apenas números) <span require title="Obrigatório">*</span></label>
                 <input type="text" name="cpf" placeholder="n.º de CPF" required pattern="[0-9]{11}" minlength="11" maxlength="11" value="<?= $inscricao->getCpf() ?>">

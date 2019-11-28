@@ -6,6 +6,23 @@ require_once './../dao/InscricaoDao.php';
 
 require_once './../model/Inscricao.php';
 
+if($_GET['update'] == 'true') {
+    // unset($_POST['evento_id']); # desconsiderando evento por enquanto
+
+    $inscricao = Array();
+
+    foreach($_POST as $chave => $valor)
+        $inscricao{$chave} = $valor;
+    
+    $inscricao = new Inscricao($inscricao);
+
+    $inscricaoDao = new InscricaoDao;
+    $inscricaoDao->updateInscricao($inscricao);
+
+    header('Location: ./../../?updated=true');
+    exit;
+}
+
 function _isset() {
     $n = 0;
     $N = sizeof($_POST);
