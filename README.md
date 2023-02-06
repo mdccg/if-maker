@@ -1,13 +1,27 @@
-# &#9825; IF Maker &#9825;
-Projeto para a unidade curricular Desenvolvimento Web 2 e em breve disponível [aqui](#).
+# if-maker
 
-``$ php --version``
-```
-PHP 7.2.19-0ubuntu0.18.04.2 (cli) (built: Aug 12 2019 19:34:28) ( NTS )
-Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
-    with Zend OPcache v7.2.19-0ubuntu0.18.04.2, Copyright (c) 1999-2018, by Zend Technologies
-```
+## Sumário
 
-- [ ] FIXME coluna `data_inscricao` da tabela `inscricao`
-- [ ] TODO `UPDATE` das inscrições
+- [if-maker](#if-maker)
+  - [Sumário](#sumário)
+  - [Motivação](#motivação)
+  - [Pilha de tecnologia](#pilha-de-tecnologia)
+  - [Galeria](#galeria)
+
+## Motivação
+
+Este foi o único repositório de código apresentado no [Curso Técnico Integrado em Informática do IFMS](https://www.ifms.edu.br/campi/campus-aquidauana/cursos/integrado/informatica) como requisito para obtenção da nota parcial de uma atividade da unidade curricular Desenvolvimento Web II, a qual consistiu em refatorar a antiga página da rede de laboratórios IF Maker. 
+
+## Pilha de tecnologia
+
+As seguintes tecnologias foram utilizadas para desenvolver este app:
+
+| Papel | Tecnologia |
+|-|-|
+| Ambiente de execução | [XAMPP](https://www.apachefriends.org/pt_br/about.html) |
+| Linguagem de programação | [PHP](https://www.php.net/) |
+| Banco de dados | [MySQL](https://maven.apache.org/) |
+
+## Galeria
+
+![Modelo relacional](./docs/modelo-relacional.png)
